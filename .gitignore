@@ -1,0 +1,11 @@
+.vscode
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.sql
+
+.venv/
+.env
+
+website/__pycache__

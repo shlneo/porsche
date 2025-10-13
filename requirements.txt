@@ -1,0 +1,7 @@
+flask
+Flask-Admin==1.6.1
+Flask-SQLAlchemy
+Flask-Login
+flask-socketio
+SQLAlchemy
+dotenv
