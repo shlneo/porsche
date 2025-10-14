@@ -5,3 +5,8 @@ Flask-Login
 flask-socketio
 SQLAlchemy
 dotenv
+flask_babel
+flask_bcrypt
+flask_migrate
+flask_wtf
+psycopg2

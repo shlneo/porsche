@@ -24,8 +24,7 @@ csrf = CSRFProtect()
 
 LANGUAGES = {
     'en': 'English',
-    'ru': 'Русский',
-    'be': 'Беларуский'
+    'ru': 'Русский'
 }
 
 def get_locale():
