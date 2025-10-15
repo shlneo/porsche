@@ -9,8 +9,8 @@ from flask_login import (
 views = Blueprint('views', __name__)
 
 @views.route('/')
-@login_required
-def catalog():
-    return render_template('catalog.html', 
-                        current_user=current_user,
-                           )
+def catalog(methods=['POST', 'GET']):
+    if request.method == 'GET':
+        return render_template('catalog.html', 
+                            current_user=current_user,
+                            )

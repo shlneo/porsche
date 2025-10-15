@@ -53,7 +53,6 @@ class Car(db.Model):
     created_at = db.Column(db.DateTime, default=current_utc_time)
     updated_at = db.Column(db.DateTime, default=current_utc_time, onupdate=current_utc_time)
     
-    # Связи
     images = db.relationship('CarImage', backref='car', lazy=True, cascade="all, delete-orphan")
     test_drives = db.relationship('TestDrive', backref='car', lazy=True)
     orders = db.relationship('Order', backref='car', lazy=True)
@@ -63,8 +62,8 @@ class CarImage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     car_id = db.Column(db.Integer, db.ForeignKey('cars.id'), nullable=False)
     image_url = db.Column(db.String(500), nullable=False)
-    is_main = db.Column(db.Boolean, default=False)  # Главное изображение
-    order_index = db.Column(db.Integer, default=0)  # Порядок отображения
+    is_main = db.Column(db.Boolean, default=False) 
+    order_index = db.Column(db.Integer, default=0)
     created_at = db.Column(db.DateTime, default=current_utc_time)
 
 class TestDrive(db.Model):
@@ -74,9 +73,9 @@ class TestDrive(db.Model):
     car_id = db.Column(db.Integer, db.ForeignKey('cars.id'), nullable=False)
     scheduled_date = db.Column(db.DateTime, nullable=False)
     status = db.Column(db.String(20), default='pending')  # pending, confirmed, completed, cancelled
-    duration = db.Column(db.Integer, default=30)  # Длительность в минутах
-    notes = db.Column(db.Text)  # Примечания клиента
-    admin_notes = db.Column(db.Text)  # Примечания менеджера
+    duration = db.Column(db.Integer, default=30)
+    notes = db.Column(db.Text)
+    admin_notes = db.Column(db.Text)  
     created_at = db.Column(db.DateTime, default=current_utc_time)
     updated_at = db.Column(db.DateTime, default=current_utc_time, onupdate=current_utc_time)
 

@@ -9,3 +9,4 @@
 .env
 
 website/__pycache__
+website/static/video

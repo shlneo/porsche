@@ -1,0 +1,238 @@
+/* Объявляем обычный (normal) шрифт */
+@font-face {
+    font-family: 'Arial Narrow'; /* Придумайте здесь любое имя, которое будете использовать в CSS */
+    src: url('/static/font/arialnarrow.ttf') format('truetype'); /* Укажите ПРАВИЛЬНЫЙ путь к файлу */
+    font-weight: 400; /* normal */
+    font-style: normal;
+}
+
+/* Объявляем жирный (bold) шрифт */
+@font-face {
+    font-family: 'Arial Narrow';
+    src: url('/static/font/arialnarrow_bold.ttf') format('truetype');
+    font-weight: 700; /* bold */
+    font-style: normal;
+}
+
+/* Объявляем курсив (italic) */
+@font-face {
+    font-family: 'Arial Narrow';
+    src: url('/static/font/arialnarrow_italic.ttf') format('truetype');
+    font-weight: 400; /* normal */
+    font-style: italic;
+}
+
+/* Объявляем жирный курсив (bold italic) */
+@font-face {
+    font-family: 'Arial Narrow';
+    src: url('/static/font/arialnarrow_bolditalic.ttf') format('truetype');
+    font-weight: 700; /* bold */
+    font-style: italic;
+}
+
+
+:root {
+    --hover-tool-tip: rgb(68, 68, 68);
+
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Montserrat', sans-serif; */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(87, 87, 87) rgb(255, 255, 255);
+}
+
+body {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+header {   
+    position: absolute;
+    top: 0;
+    
+    width: calc(100% - 80px);
+    height: 76px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    gap: 2px;
+    padding: 0 40px;
+    z-index: 2;
+}
+
+header nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-aside,
+.header-bside,
+.header-cside{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.menu-container:hover{
+    background: var(--hover-tool-tip);
+    transition: 0.3s ease;
+}
+
+.menu-label {
+    color: white;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.menu-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: var(--hover-tool-tip);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.header-aside:hover .menu-tooltip,
+.header-bside:hover .menu-tooltip,
+.header-cside:hover .menu-tooltip{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(3px);
+}
+
+
+
+.menu-icon {
+    width: 17px;
+    height: 17px;
+    stroke: white;
+    stroke-width: 1;
+}
+
+.header-aside:hover .menu-icon,
+.header-bside:hover .menu-icon,
+.header-cside:hover .menu-icon {
+    fill: #ffffff;
+}
+
+.header-bside {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.header-bside svg {
+    width: 165px; 
+    height: auto; 
+    fill: #ffffff;
+}
+
+.header-img{
+    width: 24px;
+    height: auto;
+}
+
+/*catalog b*/
+.video-cont{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.video-cont::before,
+.video-cont::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.video-cont::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+
+.video-cont::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+
+.video-cont video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -100;
+}
+
+.video-cont .text-hover{
+    color: white;
+    word-break: keep-all;
+    position: absolute;
+    left: 150px;
+    bottom: 300px;
+    font-weight: 500;
+
+}
+
+/*catalog*/

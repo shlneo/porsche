@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<div class="video-cont">
+    <video autoplay loop muted preload="none" loading="lazy">
+        <source src="{{ url_for('static', filename='video/1.mp4') }}">
+    </video>
+    <h1 class="text-hover">
+        911 GT3 RS
+    </h1>
+
+ 
+
+</div>
+{% endblock %}
