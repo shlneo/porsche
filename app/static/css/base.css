@@ -1,39 +1,36 @@
-/* Объявляем обычный (normal) шрифт */
 @font-face {
-    font-family: 'Arial Narrow'; /* Придумайте здесь любое имя, которое будете использовать в CSS */
-    src: url('/static/font/arialnarrow.ttf') format('truetype'); /* Укажите ПРАВИЛЬНЫЙ путь к файлу */
-    font-weight: 400; /* normal */
+    font-family: 'Arial Narrow'; 
+    src: url('/static/font/arialnarrow.ttf') format('truetype');
+    font-weight: 400; 
     font-style: normal;
 }
 
-/* Объявляем жирный (bold) шрифт */
 @font-face {
     font-family: 'Arial Narrow';
     src: url('/static/font/arialnarrow_bold.ttf') format('truetype');
-    font-weight: 700; /* bold */
+    font-weight: 700; 
     font-style: normal;
 }
 
-/* Объявляем курсив (italic) */
 @font-face {
     font-family: 'Arial Narrow';
     src: url('/static/font/arialnarrow_italic.ttf') format('truetype');
-    font-weight: 400; /* normal */
+    font-weight: 400;
     font-style: italic;
 }
 
-/* Объявляем жирный курсив (bold italic) */
 @font-face {
     font-family: 'Arial Narrow';
     src: url('/static/font/arialnarrow_bolditalic.ttf') format('truetype');
-    font-weight: 700; /* bold */
+    font-weight: 700;
     font-style: italic;
 }
 
-
 :root {
     --hover-tool-tip: rgb(68, 68, 68);
-
+    --greay-text-bottom-vid: #afb0b3;
+    --greay-border-hover-vid-cont: rgb(167, 167, 167);
+    --greay-back-hover-vid-cont: rgba(133, 133, 133, 0.2); 
 
 
 }
@@ -41,7 +38,6 @@
 * {
     margin: 0;
     padding: 0;
-    /* font-family: 'Montserrat', sans-serif; */
 }
 
 html, body {
@@ -148,8 +144,6 @@ header nav{
     transform: translateX(-50%) translateY(3px);
 }
 
-
-
 .menu-icon {
     width: 17px;
     height: 17px;
@@ -190,28 +184,30 @@ header nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.video-cont::before,
-.video-cont::after {
+.video-cont::before {
     content: '';
     position: absolute;
+    top: 0;
     left: 0;
-    right: 0;
-    height: 70px;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.664) 0%, transparent 100%);
     z-index: 1;
     pointer-events: none;
 }
 
-.video-cont::before {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
-}
-
 .video-cont::after {
+    content: '';
+    position: absolute;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.596) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .video-cont video {
@@ -225,14 +221,156 @@ header nav{
     z-index: -100;
 }
 
-.video-cont .text-hover{
-    color: white;
-    word-break: keep-all;
+.video-cont-text{
     position: absolute;
-    left: 150px;
-    bottom: 300px;
+    display: flex;
+    flex-direction: column;    
+    left: 10%;
+    bottom: 25%;
+    gap: 25px;
+}
+
+.video-cont-text .text-hover{
+    color: white;
     font-weight: 500;
+    font-size: 80px;
+    transform: translate(0px);
+}
+
+.video-cont-button{
+    padding: 13px 26px;
+    border-radius: 3px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    width: fit-content;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.video-cont-button:hover{
+    transition: all 0.3s ease;
+    background-color: rgba(133, 133, 133, 0.2);
+    border: 2px solid var(--greay-border-hover-vid-cont);
+}
+
+.video-cont-dop-info{
+    position: absolute;
+    bottom: 4%;
+    margin: 0 auto;
+    width: calc(100% - 20px);
+    text-align: center;
+    padding: 0 10px;
+    z-index: 2;
+}
+
+.video-cont-dop-info p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--greay-text-bottom-vid);
+    font-size: 12px;
+    line-height: 22.5px;
+}
+
+.video-cont-pouse-btn{
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+    z-index: 2;
+}
+
+.video-cont-pouse-btn .video-cont-button{
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border-radius: 3px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    line-height: 50px; 
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.hybrid-cont{
+    margin: 77px 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
 
 }
 
+.cards{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-image-container {
+    position: relative;
+    width: 310px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .header-img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: 20px;
+    color: white;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-arrow {
+    font-size: 24px;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-arrow {
+    transform: translateX(5px);
+}
+
 /*catalog*/
+
+
