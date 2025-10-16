@@ -4,7 +4,7 @@
 
     <div class="video-cont">
         <video autoplay loop muted preload="none" loading="lazy">
-            <source src="{{ url_for('static', filename='video/1.mp4') }}">
+            <source src="{{ url_for('static', filename='video/2.mp4') }}">
         </video>
         <div class="video-cont-text">
             <h1 class="text-hover">
@@ -20,43 +20,90 @@
         </div>
     </div>
     <div class="hybrid-cont">
-        <div class="cards">
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="{{ url_for('static', filename='img/cars/macan-electric/1.jpg') }}" class="header-img" alt="{{ _('car') }}">
-                    <div class="card-overlay">
-                        <div class="card-content">
-                            <h3 class="card-title">{{ _('Macan Electric') }}</h3>
-                            <span class="card-arrow">→</span>
+        <div class="hybrid-info">
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="{{ url_for('static', filename='img/cars/macan-electric/1.jpg') }}" class="header-img" alt="{{ _('car') }}">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3 class="card-title">{{ _('Macan Electric') }}.</h3>
+                                <div class="arrow-area">
+                                    <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="{{ url_for('static', filename='img/cars/carrera-t/1.webp') }}" class="header-img" alt="{{ _('car') }}">
+                        <div class="card-overlay"> 
+                            <div class="card-content">
+                                <h3 class="card-title">{{ _('911 Carrera T') }}.</h3>
+                                <div class="arrow-area">
+                                    <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="{{ url_for('static', filename='img/cars/panamera-turbo-E-Hybrid/2.jpg') }}" class="header-img" alt="{{ _('car') }}">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3 class="card-title">{{ _('Panamera Turbo E-Hybrid') }}.</h3>   
+                                <div class="arrow-area">
+                                    <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="{{ url_for('static', filename='img/cars/carrera-t/1.webp') }}" class="header-img" alt="{{ _('car') }}">
-                    <div class="card-overlay"> 
-                        <div class="card-content">
-                            <h3 class="card-title">{{ _('911 Carrera T') }}</h3>
-                            <span class="card-arrow">→</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="{{ url_for('static', filename='img/cars/panamera-turbo-E-Hybrid/1.webp') }}" class="header-img" alt="{{ _('car') }}">
-                    <div class="card-overlay">
-                        <div class="card-content">
-                            <h3 class="card-title">{{ _('Panamera Turbo E-Hybrid') }}</h3>
-                            <span class="card-arrow">→</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-under-cards">
+                {{ _('Macan Electric: Electrical consumption combined (WLTP): 19.8 – 17.0 kWh/100 km, CO₂-emissions combined (WLTP): 0 g/km | 911 Carrera T: Fuel consumption combined (model range): 10.9 – 10.4 l/100 km, CO₂-emissions combined (model range): 248 – 237 g/km | Panamera Turbo E-Hybrid: Fuel consumption (weighted) combined (model range): 4.3 – 3.5 l/100 km, Electric energy consumption (weighted) combined (model range): 29.5 – 18.8 kWh/100 km, CO₂-emissions (weighted) combined (model range): 99 – 81 g/km, Fuel consumption (sustaining) combined (model range): 11.0 – 10.0 l/100 km') }}
             </div>
         </div>
     </div>
+    <div class="Car-Range-cont">  
+        <h2 class="yuor-p">{{ _('Your Porsche journey starts now') }}.</h2>
+        <div class="Car-Range-grid">
+            <div class="car-model model911">
+                <div class="car-code">
+                    <img src="{{ url_for('static', filename='img/model-signatures/911.svg') }}"  alt="911">
+                </div>
+                <div class="car-image-container">
+                    <img src="{{ url_for('static', filename='img/cars/911/1.jpg') }}" alt="911">
+                </div>
+                <div class="car-info">
+                     <div class="car-footer">
+                        <div class="car-type">{{ _('Gasoline') }}</div>
+                        <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}.</div>
+                    </div>  
+                    <div class="arrow-area">  
+                        <p class = "arrow-area-text">{{ _('Explore') }}</p>
+                        <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                    </div>
+                </div>
+            </div>
+        
 
+            <div class="car-model model718">
+                <div class="car-image-container">
+                    <img src="{{ url_for('static', filename='img/cars/718/1.jpg') }}" alt="Model 2">
+                </div>
+                <div class="car-info">
+                    <div class="car-code">718</div>
+                    <div class="car-type">Gasoline</div>
+                    <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}.</div>
+                </div>
+            </div>
+            
+        
+        </div>
+    </div>
 
 
 

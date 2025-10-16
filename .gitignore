@@ -8,5 +8,6 @@
 .venv/
 .env
 
-website/__pycache__
-website/static/video
+app/__pycache__
+app/static/video
+
