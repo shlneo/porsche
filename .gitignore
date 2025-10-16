@@ -10,5 +10,3 @@
 
 app/__pycache__
 app/static/video
-
-!app/static/
