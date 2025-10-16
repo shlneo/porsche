@@ -79,8 +79,10 @@
 
       {% endblock %}
     </main>
-    <!-- <footer>
-     
-    </footer> -->
+    {% if not hide_footer %}
+    <footer>
+      
+    </footer>
+    {% endif%}
   </body> 
 </html>

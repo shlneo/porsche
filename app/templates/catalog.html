@@ -4,7 +4,7 @@
 
     <div class="video-cont">
         <video autoplay loop muted preload="none" loading="lazy">
-            <source src="{{ url_for('static', filename='video/2.mp4') }}">
+            <source src="{{ url_for('static', filename='video/1.mp4') }}">
         </video>
         <div class="video-cont-text">
             <h1 class="text-hover">
@@ -69,42 +69,131 @@
     </div>
     <div class="Car-Range-cont">  
         <h2 class="yuor-p">{{ _('Your Porsche journey starts now') }}.</h2>
-        <div class="Car-Range-grid">
-            <div class="car-model model911">
-                <div class="car-code">
-                    <img src="{{ url_for('static', filename='img/model-signatures/911.svg') }}"  alt="911">
-                </div>
-                <div class="car-image-container">
-                    <img src="{{ url_for('static', filename='img/cars/911/1.jpg') }}" alt="911">
-                </div>
-                <div class="car-info">
-                     <div class="car-footer">
-                        <div class="car-type">{{ _('Gasoline') }}</div>
-                        <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}.</div>
-                    </div>  
-                    <div class="arrow-area">  
-                        <p class = "arrow-area-text">{{ _('Explore') }}</p>
-                        <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
-                    </div>
+    
+        <div class="Car-Range-row">
+            <div class="car-model model911" data-video="{{ url_for('static', filename='video/2.mp4') }}">
+            <div class="car-code">
+                <img src="{{ url_for('static', filename='img/model-signatures/911.svg') }}" alt="911">
+            </div>
+            <div class="car-image-container">
+                <img src="{{ url_for('static', filename='img/cars/911/1.jpg') }}" alt="911">
+                <video class="car-video" muted loop></video>
+            </div>
+            <div class="car-info">
+                <div class="car-footer">
+                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}</div>
+                </div>  
+                <div class="arrow-area">  
+                <p class="arrow-area-text">{{ _('Explore') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
                 </div>
             </div>
-        
-
-            <div class="car-model model718">
-                <div class="car-image-container">
-                    <img src="{{ url_for('static', filename='img/cars/718/1.jpg') }}" alt="Model 2">
-                </div>
-                <div class="car-info">
-                    <div class="car-code">718</div>
-                    <div class="car-type">Gasoline</div>
-                    <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}.</div>
+            </div>
+            <div class="car-model model718" data-video="{{ url_for('static', filename='video/718.mp4') }}">
+            <div class="car-code">
+                <img src="{{ url_for('static', filename='img/model-signatures/718.svg') }}" alt="718">
+            </div>
+            <div class="car-image-container">
+                <img src="{{ url_for('static', filename='img/cars/718/1.jpg') }}" alt="718">
+                <video class="car-video" muted loop></video>
+            </div>
+            <div class="car-info">
+                <div class="car-footer">
+                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
+                </div>  
+                <div class="arrow-area">  
+                <p class="arrow-area-text">{{ _('Explore') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
                 </div>
             </div>
-            
-        
+            </div>
+        </div>
+        <div class="Car-Range-row">
+            <div class="car-model modelеtaycan" data-video="{{ url_for('static', filename='video/taycan.mp4') }}">
+            <div class="car-code">
+                <img src="{{ url_for('static', filename='img/model-signatures/taycan.svg') }}" alt="taycan-signature">
+            </div>
+            <div class="car-image-container">
+                <img src="{{ url_for('static', filename='img/cars/taycan/1.jpg') }}" alt="taycan">
+                <video class="car-video" muted loop></video>
+            </div>
+            <div class="car-info">
+                <div class="car-footer">
+                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}</div>
+                </div>  
+                <div class="arrow-area">  
+                <p class="arrow-area-text">{{ _('Explore') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                </div>
+            </div>
+            </div>
+            <div class="car-model modelpanamera" data-video="{{ url_for('static', filename='video/panamera.mp4') }}">
+            <div class="car-code">
+                <img src="{{ url_for('static', filename='img/model-signatures/panamera.svg') }}" alt="panamera-signature">
+            </div>
+            <div class="car-image-container">
+                <img src="{{ url_for('static', filename='img/cars/panamera/1.jpg') }}" alt="panamera">
+                <video class="car-video" muted loop></video>
+            </div>
+            <div class="car-info">
+                <div class="car-footer">
+                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
+                </div>  
+                <div class="arrow-area">  
+                <p class="arrow-area-text">{{ _('Explore') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="Car-Range-row">
+            <div class="car-model modelmacan" data-video="{{ url_for('static', filename='video/macan.mp4') }}">
+            <div class="car-code">
+                <img src="{{ url_for('static', filename='img/model-signatures/macan.svg') }}" alt="macan">
+            </div>
+            <div class="car-image-container">
+                <img src="{{ url_for('static', filename='img/cars/macan/1.jpg') }}" alt="macan">
+                <video class="car-video" muted loop></video>
+            </div>
+            <div class="car-info">
+                <div class="car-footer">
+                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}</div>
+                </div>  
+                <div class="arrow-area">  
+                <p class="arrow-area-text">{{ _('Explore') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                </div>
+            </div>
+            </div>
+            <div class="car-model modelcayenne" data-video="{{ url_for('static', filename='video/cayenne.mp4') }}">
+            <div class="car-code">
+                <img src="{{ url_for('static', filename='img/model-signatures/cayenne.svg') }}" alt="cayenne">
+            </div>
+            <div class="car-image-container">
+                <img src="{{ url_for('static', filename='img/cars/cayenne/1.jpg') }}" alt="cayenne">
+                <video class="car-video" muted loop></video>
+            </div>
+            <div class="car-info">
+                <div class="car-footer">
+                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
+                </div>  
+                <div class="arrow-area">  
+                <p class="arrow-area-text">{{ _('Explore') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                </div>
+            </div>
+            </div>
         </div>
     </div>
-
+    <div class = "discover-cont">
+        <h2>Discover</h2>
+    </div>
 
 
     {% block scripts %}
