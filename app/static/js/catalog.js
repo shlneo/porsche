@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const rect = cardsGrid.getBoundingClientRect();
         const rect2 = discover.getBoundingClientRect();
         if (rect.top < 0 ) {
-            body.style.backgroundColor = '#000000';
+            body.style.backgroundColor = '#0e0e12';
             body.style.transition = 'background-color 0.8s ease';
             if (yourP) {
                 yourP.style.color = '#ffffff';
