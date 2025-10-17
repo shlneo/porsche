@@ -27,15 +27,18 @@
 }
 
 :root {
-    --hover-tool-tip: rgb(87, 87, 87);
-    --hover-tool-tip2:rgb(61, 61, 61);
+    --hover-tool-tip: rgb(124, 124, 124);
+    --hover-tool-tip2:rgb(109, 109, 109);
+    --hover-tool-tip3:rgb(212, 212, 212);
+    
     --greay-text-bottom-vid: #afb0b3;
     --greay-border-hover-vid-cont: rgb(167, 167, 167);
     --greay-back-hover-vid-cont: rgba(133, 133, 133, 0.2); 
     --greay-text-hybrid: #6b6d70;
     --hr-color: #3b3b3b;
     --footer-back: #0e0e12;
-    
+    --right-side-back: rgb(238, 239, 242);
+
     --scrollbar-back: rgb(43, 43, 43);
     --scrollbar-polz: rgb(105, 105, 105);
 }
@@ -171,6 +174,215 @@ header nav{
     width: 210px; 
     height: auto; 
     fill: #ffffff;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1997;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 65%;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease;
+    z-index: 1998;
+    overflow-y: auto;
+}
+
+.close-btn {
+    position: fixed;
+    top: 20px;
+    right: calc(30% - 20px);
+    background: none;
+    border: none;
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* .close-btn:hover {
+    background-color: var(--hover-tool-tip2);
+} */
+
+.menu-content {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.menu-open .side-menu {
+    left: 0;
+    
+}
+
+.menu-open .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-open .close-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.left-side,
+.right-side{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 100px 40px 40px;
+}
+
+.left-side{
+    padding-right: 0;
+}
+
+.right-side{
+    background-color: var(--right-side-back);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+
+.left-side-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.side-button{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: black;
+    border-radius: 4px;
+    padding: 10px 10px;
+    border: none;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    min-width: 240px;
+    width: 100%;
+    cursor: pointer;    
+    -webkit-backdrop-filter: blur(32px);
+
+}
+
+.side-button.active{
+    backdrop-filter: blur(32px);
+    background-color: rgba(148, 149, 152, .18);
+}
+
+.side-button:hover{
+    backdrop-filter: blur(32px);
+    background-color: rgba(148, 149, 152, .18);
+}
+
+.side-button img{
+    width: 24px;
+    height: auto;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
+.purchase-content,
+.services-content,
+.experience-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 25px;
+}
+
+.purchase-content .arrow-area,
+.services-content .arrow-area,
+.experience-content .arrow-area{
+    font-size: 19px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+.car-card{
+    width: calc(100%-40px);
+    border:none;
+    border-radius: 6px;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.car-card:hover {
+    background-color: white; 
+}
+
+.car-card p{
+    color: black;
+    font-size: 26px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.car-card img{
+    width: 100%;
+    height: auto;
+    transition: padding 0.3s ease;
+}
+
+.car-card:hover img {
+    padding-left: 10px; 
+}
+
+.car-types{
+    display: flex;
+    gap: 7px;
+    padding-top: 5px;
+}
+
+.car-types span{
+    display: flex;
+    gap: 7px;
+    border-radius: 6px;
+    border: none;
+    padding: 4px 7px;
+    background-color: white;
+    transition: background-color 0.3s ease; 
+}
+
+.car-card:hover .car-types span {
+    background-color: var(--right-side-back); 
 }
 
 footer{
@@ -553,12 +765,13 @@ footer section div span{
     padding: 5px;
     border-radius: 4px;
     align-items: center;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: row;
     gap: 8px;
     cursor: pointer;
     width: fit-content;
+    
 }
 
 .arrow-area-text{
@@ -569,7 +782,7 @@ footer section div span{
 }
 
 .arrow-area:hover{
-    background: var(--hover-tool-tip2);
+    background: var(--hover-tool-tip3);
     transition: all 0.3s ease;
 }
 

@@ -13,13 +13,13 @@
     <header>
         <nav>
             <div class="header-aside">
-                <div class="menu-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="menu-icon">
+                <div class="menu-container" id = "dop-menu-btn" >
+                    <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="menu-icon">
                         <path d="M0 1h30M0 10h30M0 19h30" stroke="white" stroke-width="2"/>
                     </svg>
-                    <!-- <label class="menu-label">{{ _('Menu') }}</label> -->
+                    <label class="menu-label">{{ _('Menu') }}</label>
                 </div>
-                <div class="menu-tooltip">{{ _('Menu') }}</div>
+                <!-- <div class="menu-tooltip">{{ _('Menu') }}</div> -->
             </div>
             <div class="header-bside">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4500 300"><path d="M502 221c48.1 0 74-25.9 74-74V74c0-48.1-25.9-74-74-74H0v300h68v-79h434zm6-143v65c0 7.8-4.2 12-12 12H68V66h428c7.8 0 12 4.2 12 12zm228 222c-48.1 0-74-25.9-74-74V74c0-48.1 25.9-74 74-74h417c48.1 0 74 25.9 74 74v152c0 48.1-25.9 74-74 74H736zm411-66c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12H742c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h405zm675-36c39.844 16.757 67.853 56.1 68 102h-68c0-54-25-79-79-79h-361v79h-68V0h502c48.1 0 74 25.9 74 74v50.14c0 46.06-23.75 71.76-68 73.86zm-12-43c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12h-428v89h428zm162-81c0-48.1 25.9-74 74-74h492v56h-486c-7.8 0-12 4.2-12 12v42c0 7.8 4.2 12 12 12h422c48.1 0 74 25.9 74 74v30c0 48.1-25.9 74-74 74h-492v-56h486c7.8 0 12-4.2 12-12v-42c0-7.8-4.2-12-12-12h-422c-48.1 0-74-25.9-74-74V74zm661 0c0-48.1 25.9-74 74-74h480v66h-474c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h474v66h-480c-48.1 0-74-25.9-74-74V74zM3817 0v300h-68V183h-407v117h-68V0h68v117h407V0h68zm156 56v66h527v56h-527v66h527v56h-595V0h595v56h-527z"></path></svg>
@@ -31,6 +31,117 @@
         
         </nav>
     </header>
+    {% endif %}
+
+    {% if not hide_side_menu %}
+    <div class="overlay" id="overlay"></div>
+    <button class="close-btn" id="close-menu">
+      <img src="{{ url_for('static', filename='img/close.svg') }}">
+    </button>
+    <div class="side-menu">
+        <div class="menu-content">
+          <div class="left-side">
+            <div class="left-side-buttons">
+              <button class="side-button active" data-tab="models">
+                <p>{{ _('Models') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </button>
+              <button class="side-button" data-tab="purchase">
+                <p>{{ _('Vehicle Purchase') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </button>
+              <button class="side-button" data-tab="services">
+                <p>{{ _('Services') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </button>
+              <button class="side-button" data-tab="experience">
+                <p>{{ _('Experience') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </button>
+              <button class="side-button" onclick="">
+                <p>{{ _('Find a Dealer') }}</p>
+                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </button>
+            </div>
+          </div>
+          
+          <div class="right-side tab-content active" id="models-tab">
+            <div class="car-card">
+              <p>718</p>
+              <img src="{{ url_for('static', filename='img/cars/menu-img/718.webp') }}">
+              <div class="car-types">
+                <span>Gasoline</span>
+              </div>
+            </div>
+            <div class="car-card">
+              <p>911</p>
+              <img src="{{ url_for('static', filename='img/cars/menu-img/911.webp') }}">
+              <div class="car-types">
+                <span>Gasoline</span>
+              </div>
+            </div>
+            <div class="car-card">
+              <p>Taycan</p>
+              <img src="{{ url_for('static', filename='img/cars/menu-img/taycan.webp') }}">
+              <div class="car-types">
+                <span>Electric</span>
+              </div>
+            </div>
+            <div class="car-card">
+              <p>Panamera</p>
+              <img src="{{ url_for('static', filename='img/cars/menu-img/panamera.webp') }}">
+              <div class="car-types">
+                <span>Hybrid</span>
+                <span>Gasoline</span>
+              </div>
+            </div>
+            <div class="car-card">
+              <p>Macan</p>
+              <img src="{{ url_for('static', filename='img/cars/menu-img/macan.webp') }}">
+              <div class="car-types">
+                <span>Electric</span>
+              </div>
+            </div>
+            <div class="car-card">
+              <p>Cayenne</p>
+              <img src="{{ url_for('static', filename='img/cars/menu-img/cayenne.webp') }}">
+              <div class="car-types">
+                <span>Hybrid</span>
+                <span>Gasoline</span>
+              </div>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="purchase-tab">
+            <div class="purchase-content">
+              <a href="" class="arrow-area">Configure</a>
+              <a href="" class="arrow-area">Compare Models</a>
+              <a href="" class="arrow-area">Find New and Pre-owned Vehicles</a>
+              <a href="" class="arrow-area">E-Mobility & E-Performance</a>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="services-tab">
+            <div class="services-content">
+              <a href="" class="arrow-area">Service & Maintenance</a>
+              <a href="" class="arrow-area">Vehicle Accessories</a>
+              <a href="" class="arrow-area">Individualisation</a>
+              <a href="" class="arrow-area">Classic – Service & Parts</a>
+              <a href="" class="arrow-area">Approved – Pre-owned Cars & Warranty</a>
+              <a href="" class="arrow-area">Porsche Card</a>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="experience-tab">
+            <div class="experience-content">
+              <a href="" class="arrow-area">Motorsport</a>
+              <a href="" class="arrow-area">Porsche Experience – Driving & Track Experiences</a>
+              <a href="" class="arrow-area">Porsche Communities</a>
+              <a href="" class="arrow-area">Golf Sports</a>
+              <a href="" class="arrow-area">Stories – People. Passion. Places.</a>
+              <a href="" class="arrow-area">Christophorus – The Porsche Magazine</a>
+              <a href="" class="arrow-area">Visit the Museum & Factory</a>
+            </div>
+          </div>
+        </div>
+    </div>
     {% endif %}
 
     {% if show_circle_buttons %}
