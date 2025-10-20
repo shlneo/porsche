@@ -10,3 +10,5 @@ flask_bcrypt
 flask_migrate
 flask_wtf
 psycopg2
+pandas
+openpyxl

@@ -80,7 +80,7 @@ def create_app():
         db.create_all()
         create_database(app, db)
 
-    from .models import User, Car
+    from .models import Model, User
     
     login_manager.init_app(app)
     login_manager.login_message = "Need to auth."

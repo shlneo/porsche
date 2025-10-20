@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "models-page">
+    <h1>Model overview</h1>
+    <div class = "models-grid">
+        <div class="models-menu"></div>
+        <div class="models-catalog"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/models.js') }}"></script>
+    {% endblock %}
+{% endblock %}
+

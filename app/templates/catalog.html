@@ -4,13 +4,13 @@
 
     <div class="video-cont">
         <video autoplay loop muted preload="none" loading="lazy">
-            <source src="{{ url_for('static', filename='video/1.mp4') }}">
+            <source src="{{ url_for('static', filename='video/begin-page-video.mp4') }}">
         </video>
         <div class="video-cont-text">
             <h1 class="text-hover">
                 GT3 RS.
             </h1>
-            <a href="" class = "video-cont-button">{{ _('Discover more') }}</a>
+            <a href="/models" class = "video-cont-button">{{ _('Discover more') }}</a>
         </div>
         <div class = "video-cont-dop-info">
             <p>{{ _('Fuel consumption combined (model range): 11.7 – 10.7 l/100 km, CO₂-emissions combined (model range): 267 – 243 g/km') }}</p>
@@ -71,7 +71,7 @@
         <h2 class="yuor-p">{{ _('Your Porsche journey starts now') }}.</h2>
     
         <div class="Car-Range-row">
-            <div class="car-model model911" data-video="{{ url_for('static', filename='video/2.mp4') }}">
+            <div class="car-model model911" data-video="{{ url_for('static', filename='video/911-catalog.mp4') }}">
             <div class="car-code">
                 <img src="{{ url_for('static', filename='img/model-signatures/911.svg') }}" alt="911">
             </div>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             </div>
-            <div class="car-model model718" data-video="{{ url_for('static', filename='video/718.mp4') }}">
+            <div class="car-model model718" data-video="{{ url_for('static', filename='video/718-catalog.mp4') }}">
             <div class="car-code">
                 <img src="{{ url_for('static', filename='img/model-signatures/718.svg') }}" alt="718">
             </div>
@@ -111,12 +111,12 @@
             </div>
         </div>
         <div class="Car-Range-row">
-            <div class="car-model modelеtaycan" data-video="{{ url_for('static', filename='video/taycan.mp4') }}">
+            <div class="car-model modelеtaycan" data-video="{{ url_for('static', filename='video/taycan-catalog.mp4') }}">
             <div class="car-code">
                 <img src="{{ url_for('static', filename='img/model-signatures/taycan.svg') }}" alt="taycan-signature">
             </div>
             <div class="car-image-container">
-                <img src="{{ url_for('static', filename='img/cars/taycan/1.jpg') }}" alt="taycan">
+                <img src="{{ url_for('static', filename='img/cars/taycan/taycan-catalog-video.jpg') }}" alt="taycan">
                 <video class="car-video" muted loop></video>
             </div>
             <div class="car-info">
