@@ -38,7 +38,7 @@
     --hr-color: #3b3b3b;
     --footer-back: #0e0e12;
     --right-side-back: rgb(238, 239, 242);
-
+    --gray-text: #6b6d70;
     --scrollbar-back: rgb(43, 43, 43);
     --scrollbar-polz: rgb(105, 105, 105);
 }
@@ -909,9 +909,6 @@ footer section div span{
     transition: all 0.4s ease;
 }
 
-
-
-
 /* .modelеtaycan {
     grid-column: 1;
     grid-row: 2;
@@ -1083,14 +1080,25 @@ footer section div span{
 .models-page{
     min-height: 100vh;
     background-color: var(--right-side-back);
-    width: calc(100% - 160px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1600px;
     padding: 0 80px;
     padding-top: 130px;
+
 }
 
-.models-page h1{
+.models-page-header{
+    width: 100%;
+    text-align: left;
+}
+
+.models-page-header h1{
     font-size: 44px;
     padding-bottom: 65px;
+    width: fit-content;
 }
 
 /* 
@@ -1105,6 +1113,188 @@ footer section div span{
     z-index: 1;
     pointer-events: none;
 } */
+
+
+.models-grid{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.models-catalog{
+
+}
+
+.models-catalog-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.models-catalog-header h2{
+    font-size: 25px;
+}
+
+.models-menu{
+    grid-column: wide-start / span 3;
+    padding-right: 80px;
+}
+
+.models-menu nav{
+    text-align: left;
+}
+
+.models-menu nav li{
+    list-style: none;
+    display: flex;
+    padding: 8px 0;
+    align-items: center;
+    gap: 8px;
+}
+
+.models-menu nav p{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.gray-text{
+    color: var(--gray-text);
+}
+
+.circle-radio {
+    width: calc(6px + 2.125ex) !important;
+    height: calc(6px + 2.125ex) !important;
+    font: 1rem 'Porsche Next', 'Arial Narrow', Arial, 'Heiti SC', SimHei, sans-serif !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-sizing: content-box !important;
+    background: transparent 0% 0% / calc(6px + 2.125ex) !important;
+    transition: background-color var(--p-transition-duration, 0.25s) cubic-bezier(0.25,0.1,0.25,1), border-color var(--p-transition-duration, 0.25s) cubic-bezier(0.25,0.1,0.25,1) !important;
+    border: 2px solid #6B6D70 !important;
+    outline: 0 !important;
+    cursor: pointer !important;
+    grid-area: 1 / 1 !important;
+    border-radius: 50% !important;
+}
+
+
+.circle-radio:checked {
+  
+ 
+}
+
+.model-catalog-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 20vw, 350px), 1fr));
+    gap: clamp(16px, 1.25vw + 12px, 36px);
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+
+.model-card{
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    border:none;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.model-card:hover{
+    box-shadow:  0px 8px 40px rgba(0, 0, 0, .16);
+    transform: scale(1.01);
+}
+
+.model-card img{
+    display: block;
+    
+    margin: 15px 0;
+    max-width: fit-content;
+}
+
+.model-card h3{
+   font-size: 30px;
+   font-weight: 600;
+}
+
+
+.model-card-header{
+    background-color: white;
+}
+
+.dis-text{
+    margin-top: 20px;
+}
+
+.dis-text p{
+    color: var(--gray-text);
+    font-size: 13px;
+    line-height: 21px;
+}
+
+.top-spesh{
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.top-spesh li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.top-spesh-bold{
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.top-spesh-nobold{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.model-btns{
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.black-btn,
+.black-border-btn{
+    border-radius: 4px;
+    padding: 13px 26px;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    text-wrap: nowrap;
+    cursor: pointer;
+}
+
+.black-btn{
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+.black-border-btn{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+
+}
 
 /*models*/
 

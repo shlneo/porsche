@@ -3,10 +3,145 @@
 {% block content %}
 
 <div class = "models-page">
-    <h1>Model overview</h1>
+    <div class = "models-page-header">
+        <h1>Model overview</h1>
+    </div>
+
     <div class = "models-grid">
-        <div class="models-menu"></div>
-        <div class="models-catalog"></div>
+        <div class="models-menu">
+            <nav>
+                <p>Models</p>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>All <span class = "gray-text">(85)</span></a>
+                </li>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>718 <span class = "gray-text">(85)</span></a>
+                </li>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>911 <span class = "gray-text">(85)</span></a>
+                </li>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>Taycan <span class = "gray-text">(85)</span></a>
+                </li>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>Panamera <span class = "gray-text">(85)</span></a>
+                </li>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>Macan <span class = "gray-text">(85)</span></a>
+                </li>
+                <li>
+                    <input class = "circle-radio" type="radio">
+                    <a>Cayenne <span class = "gray-text">(85)</span></a>
+                </li>
+            </nav>
+        </div>
+        <div class="models-catalog">
+            <div class = "models-catalog-header">
+                <h2>718 Models</h2>
+                <button class="back-btn arrow-area back-to-models">
+                    <img src="/static/img/back-icon.svg">
+                    <p>Models</p>
+                </button>
+            </div>
+            <div class = "model-catalog-grid">
+                <a class = "model-card">
+                    <div class = "model-card-header">
+                        <div class="car-type">
+                            <span>Gasoline</span>
+                        </div>
+                        <img src="{{ url_for('static', filename='/img/cars/718/718cayman.png') }}">
+                        <h3>718 Cayman</h3>
+                    </div>
+                    <div class = "dis-text">
+                        <p>Fuel consumption combined: 9.7 – 8.9 l/100 km (preliminary value), CO2-emissions combined (WLTP): 220 – 201 g/km (preliminary value), CO2 Class: G (preliminary value)</p>
+                    </div>
+                    <ul class = "top-spesh">
+                        <li>
+                            <div class = "top-spesh-bold">5.1 s</div>
+                            <div class = "top-spesh-nobold">Acceleration 0 - 100 km/h</div>
+                        </li>
+                        <li>
+                            <div class = "top-spesh-bold">220 kW / 300 PS</div>
+                            <div class = "top-spesh-nobold">Power (kW) / Power (PS)</div>
+                        </li>
+                        <li>
+                            <div class = "top-spesh-bold">275 km/h</div>
+                            <div class = "top-spesh-nobold">Top speed</div>
+                        </li>
+                    </ul>
+                    <div class = "model-btns">
+                        <button class = "black-btn">Select Model</button>
+                        <button class = "black-border-btn">Compare</button>
+                    </div>
+                </a>
+                <a class = "model-card">
+                    <div class = "model-card-header">
+                        <div class="car-type">
+                            <span>Gasoline</span>
+                        </div>
+                        <img src="{{ url_for('static', filename='/img/cars/718/718cayman.png') }}">
+                        <h3>718 Cayman</h3>
+                    </div>
+                    <div class = "dis-text">
+                        <p>Fuel consumption combined: 9.7 – 8.9 l/100 km (preliminary value), CO2-emissions combined (WLTP): 220 – 201 g/km (preliminary value), CO2 Class: G (preliminary value)</p>
+                    </div>
+                    <ul class = "top-spesh">
+                        <li>
+                            <div class = "top-spesh-bold">5.1 s</div>
+                            <div class = "top-spesh-nobold">Acceleration 0 - 100 km/h</div>
+                        </li>
+                        <li>
+                            <div class = "top-spesh-bold">220 kW / 300 PS</div>
+                            <div class = "top-spesh-nobold">Power (kW) / Power (PS)</div>
+                        </li>
+                        <li>
+                            <div class = "top-spesh-bold">275 km/h</div>
+                            <div class = "top-spesh-nobold">Top speed</div>
+                        </li>
+                    </ul>
+                    <div class = "model-btns">
+                        <button class = "black-btn">Select Model</button>
+                        <button class = "black-border-btn">Compare</button>
+                    </div>
+                </a>
+                <a class = "model-card">
+                    <div class = "model-card-header">
+                        <div class="car-type">
+                            <span>Gasoline</span>
+                        </div>
+                        <img src="{{ url_for('static', filename='/img/cars/718/718cayman.png') }}">
+                        <h3>718 Cayman</h3>
+                    </div>
+                    <div class = "dis-text">
+                        <p>Fuel consumption combined: 9.7 – 8.9 l/100 km (preliminary value), CO2-emissions combined (WLTP): 220 – 201 g/km (preliminary value), CO2 Class: G (preliminary value)</p>
+                    </div>
+                    <ul class = "top-spesh">
+                        <li>
+                            <div class = "top-spesh-bold">5.1 s</div>
+                            <div class = "top-spesh-nobold">Acceleration 0 - 100 km/h</div>
+                        </li>
+                        <li>
+                            <div class = "top-spesh-bold">220 kW / 300 PS</div>
+                            <div class = "top-spesh-nobold">Power (kW) / Power (PS)</div>
+                        </li>
+                        <li>
+                            <div class = "top-spesh-bold">275 km/h</div>
+                            <div class = "top-spesh-nobold">Top speed</div>
+                        </li>
+                    </ul>
+                    <div class = "model-btns">
+                        <button class = "black-btn">Select Model</button>
+                        <button class = "black-border-btn">Compare</button>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
