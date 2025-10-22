@@ -31,7 +31,7 @@ class Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     series = db.Column(db.String(50), nullable=False)              # Основная серия, например "911", "Taycan"
     subseries = db.Column(db.String(100), nullable=True)           # Подсерия или версия
-    description = db.Column(db.String(255), nullable=True)         # Краткое описание модели
+    description = db.Column(db.String(), nullable=True)         # Краткое описание модели
    
     engine = db.Column(db.String(100), nullable=True)              # Тип двигателя
     drive = db.Column(db.String(20), nullable=True)                # Привод (RWD/AWD)
@@ -48,5 +48,5 @@ class Model(db.Model):
     range = db.Column(db.Float)
 
 
-    # def __repr__(self):
-    #     return f"<Model {self.series} {self.subseries or ''} ({self.power} hp)>"
+    def __repr__(self):
+        return f"<Model {self.series} {self.subseries or ''} ({self.power} hp)>"
