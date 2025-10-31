@@ -87,3 +87,4 @@ def get_series_counts():
     counts_dict['All'] = total_count
     
     return jsonify(counts_dict)
+

@@ -26,7 +26,13 @@
                 <div class="menu-tooltip">{{ _('Porsche.com') }}</div>
             </div>
             <div class="header-cside">
-                <!-- <img src="{{ url_for('static', filename='img/User.svg') }}" class = "header-img" alt = "{{ _('User') }}"> -->
+                <div class="menu-container" id = "dop-menu-btn" onclick="window.location.href='/login'">
+                  <svg class="side-button-main-img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="white" stroke-width="2"/>
+                      <path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="menu-tooltip">{{ _('User') }}</div>
             </div>
         
         </nav>
@@ -45,25 +51,51 @@
           <div class="left-side">
             <div class="left-side-buttons">
               <button class="side-button active" data-tab="models">
-                <p>{{ _('Models') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                <div class = "side-button-info">
+                  <p>{{ _('Models') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
+                
               </button>
               <button class="side-button" data-tab="purchase">
-                <p>{{ _('Vehicle Purchase') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                <div class = "side-button-info">
+                  <p>{{ _('Vehicle Purchase') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
               </button>
+            
               <button class="side-button" data-tab="services">
-                <p>{{ _('Services') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                <div class = "side-button-info">
+                  <p>{{ _('Services') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </div>
               </button>
               <button class="side-button" data-tab="experience">
-                <p>{{ _('Experience') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                <div class = "side-button-info">
+                  <p>{{ _('Experience') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
               </button>
-              <button class="side-button" onclick="">
-                <p>{{ _('Find a Dealer') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              <button class="side-button" data-tab="dealer">
+                <div class = "side-button-info">
+                  <p>{{ _('Find a Dealer') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
               </button>
+            </div>
+            <div class="left-side-buttons">
+              <div class = "user-cont-btn-with-img">
+                <button class="side-button" data-tab="user">
+                  <svg class="side-button-main-img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <div class = "side-button-info">
+                    <p>{{ _('User') }}</p>
+                    <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
           
@@ -154,6 +186,24 @@
               <a href="" class="arrow-area">Stories – People. Passion. Places.</a>
               <a href="" class="arrow-area">Christophorus – The Porsche Magazine</a>
               <a href="" class="arrow-area">Visit the Museum & Factory</a>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="dealer-tab">
+            <div class="dealer-content">
+              <a href="" class="arrow-area">To dealer</a>
+              <a href="" class="arrow-area">...</a>
+            </div>  
+          </div>
+          <div class="right-side tab-content" id="user-tab">
+            <div class="user-content">
+                <a href="" class="arrow-area">Messages</a>
+                <a href="" class="arrow-area">Find Connect Services</a>
+                <a href="" class="arrow-area">Profile settings</a>
+                {% if current_user.is_authenticated %}
+                  <a href="" class="arrow-area">Logout</a>
+                {% else %}
+                  <a href="/login" class="arrow-area">Log in</a>
+                {% endif %}
             </div>
           </div>
         </div>
