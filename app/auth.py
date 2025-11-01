@@ -44,7 +44,35 @@ def login():
         current_user=current_user
     )
 
+@auth.route('/sign', methods=['GET', 'POST'])
+def sign():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
 
+        if email and password:
+            user = User.query.filter(func.lower(User.email) == func.lower(email)).first()
+            if user and check_password_hash(user.password, password):
+                login_user(user)
+                if (
+                    not user.last_name or
+                    not user.first_name or
+                    not user.phone
+                ):
+                    flash("Необходимо заполнить обязательные парамметры.", "error")
+                    return redirect(url_for('auth.param'))
+                flash('Авторизация прошла успешно.', 'success')
+                return redirect(url_for('views.profile'))
+            else:
+                flash('Неправильный email или пароль.', 'error')
+        else:
+            flash('Введите данные для авторизации.', 'error')
+
+    return render_template(
+        'sign.html',
+        hide_header = True,
+        current_user=current_user
+    )
 
 
 
