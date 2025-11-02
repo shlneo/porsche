@@ -26,7 +26,9 @@ def models(series=None):
     
     return render_template('models.html', 
                         current_user=current_user,
-                        current_series=current_series
+                        current_series=current_series,
+                        hide_header=True,
+                        black_header=True
                         )
     
     
@@ -88,3 +90,11 @@ def get_series_counts():
     
     return jsonify(counts_dict)
 
+@views.route('/messages')
+def messages(methods=['POST', 'GET']):
+    if request.method == 'GET':
+        return render_template('messages.html', 
+                            current_user=current_user,
+                            hide_header=True,
+                            black_header=True
+                            )

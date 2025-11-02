@@ -131,6 +131,10 @@ header nav{
     margin: 0;
 }
 
+.menu-label.black{
+    color: rgb(0, 0, 0);
+}
+
 .menu-tooltip {
     position: absolute;
     top: 100%;
@@ -176,11 +180,16 @@ header nav{
     height: 40px;
 }
 
-.header-bside svg {
+.header-bside .title-porsche {
     width: 210px; 
     height: auto; 
     fill: #ffffff;
 }
+
+.header-bside .title-porsche.black {
+    fill: #000000;
+}
+
 
 .overlay {
     position: fixed;
@@ -223,6 +232,10 @@ header nav{
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+}
+
+.close-btn.black{
+    filter: none;
 }
 
 .close-btn:hover {
@@ -1442,27 +1455,38 @@ footer section div span{
 .login-widget-header{
     padding: 50px;
     padding-bottom: 10px;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
 }
 
-.login-widget-logo-svg{
+.login-widget-logo-svg {
     width: 70%;
     height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .login-widget-header h1{
     margin: 20px 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
+    text-align: left;
+    align-items: center;
     line-height: 35px;
 }
 
 .login-widget-body{
     padding: 0 50px;
     padding-bottom: 50px;
+}
+
+.login-widget-body hr{
+    border: 0;
+    height: 1px;
+    background: var(--border-input);
+    margin: 25px 0;
 }
 
 .login-widget-body-text{
@@ -1478,6 +1502,13 @@ footer section div span{
     flex-direction: column;
     gap: 4px;
 }
+
+.radio-btn-login{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 
 .message-under-input{
     display: flex;
@@ -1505,6 +1536,57 @@ footer section div span{
     background-color: white;
     transition: all 0.3s ease;
     box-sizing: border-box;
+}
+
+.input-radio-strange {
+    width: 32px;
+    height: 26px;
+    border: 2px solid var(--border-input);
+    border-radius: 3px;
+    outline: none;
+    background-color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.input-radio-strange:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.input-radio-strange:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+}
+
+.input-radio-strange:hover {
+    border-color: #4CAF50;
+}
+
+.input-radio-strange:focus {
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+
+.input-radio-strange:disabled {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+.input-radio-strange:disabled:checked {
+    background-color: #ccc;
+    border-color: #999;
 }
 
 .input-strange:focus {
@@ -1542,6 +1624,17 @@ footer section div span{
     transition: all 0.3s ease;
     pointer-events: none;
     font-family: Arial, sans-serif;
+}
+
+.p-text{
+    margin: 13px 0;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+.p-text span{
+    text-decoration: underline;
 }
 
 .captcha-cont{
