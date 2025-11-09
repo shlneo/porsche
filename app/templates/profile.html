@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="profile-page">
+    <div class="models-page-header">
+        <h1>Profile settings</h1>
+    </div>
+    <div></div>
+    <div class="status-cont">
+        <button class="according-control">
+            <div class="according-control-header">
+                <p class="p1">Profile completion</p>
+                <p class="p2">Win the data race.</p>
+                <p class="p3">You're almost done. Complete your data so we can provide you with the best possible support.</p>
+            </div>
+            <div class="according-control-race">
+                <div class="bar-progress">
+                    <div class="progress-fill" style="width: 40%"></div>
+                </div>
+                <div class="bar-info">
+                    <img src="{{ url_for('static', filename='img/race.svg') }}" alt="">
+                    <p>40%</p>
+                </div>
+            </div>
+            <img src="" alt="">
+        </button>
+    </div>
+
+
+</div>
+
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+    {% endblock %}
+{% endblock %}
+

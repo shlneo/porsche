@@ -1,3 +1,41 @@
+const messageFlash = (function() {
+    const containerId = 'flash-container';
+    let container;
+    let messages = []; 
+    const DISPLAY_TIME = 10000; 
+
+    function init() {
+        container = document.getElementById(containerId);
+        if (!container) {
+            container = document.createElement('div');
+            container.id = containerId;
+            document.body.appendChild(container);
+        }
+
+        const storedMessages = JSON.parse(localStorage.getItem('flashMessages') || '[]');
+        const now = Date.now();
+        messages = storedMessages.filter(msg => now - msg.createdAt < DISPLAY_TIME);
+
+        localStorage.setItem('flashMessages', JSON.stringify(messages));
+        renderMessages();
+    }
+
+    function _showMessage(msgObj) {
+    }
+
+    function removeMessage(alertBox, msgObj) {
+    }
+
+    function addMessage(msg, type='success') {
+    }
+
+    function renderMessages() {
+    }
+
+    return { init, addMessage };
+})();
+
+
 const menuBtn = document.getElementById('dop-menu-btn');
 const closeBtn = document.getElementById('close-menu');
 const overlay = document.getElementById('overlay');

@@ -10,33 +10,33 @@
             <h1>Enter Your Password</h1>
         </div>
         <div class="login-widget-body">
-            <div class="login-widget-body-text">Please enter the e-mail address, you defined as your Porsche ID.</div>
-            <div class="input-cont-label">
-                <input class="input-strange" type="text" placeholder=" ">
-                <label class="label-strange">Porsche ID *</label>
-            </div>
-            <div class="input-cont-label">
-                <input class="input-strange" type="text" placeholder=" ">
-                <label class="label-strange">Password *</label>
-            </div>
+            <div class="login-widget-body-text">Please enter your password for <span class="user-email">{{ porsche_id }}</span></div>
+            
+            <form method="POST" action="{{ url_for('auth.login_password') }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                
+                <div class="input-cont-label">
+                    <input class="input-strange" type="text" name="email" value="{{ porsche_id }}" placeholder=" " readonly>
+                    <label class="label-strange">Porsche ID *</label>
+                </div>
+                <div class="input-cont-label">
+                    <input class="input-strange" type="password" name="password" id="password-input" placeholder=" " required>
+                    <label class="label-strange">Password *</label>
+                </div>
 
-            <p class = "p-text"><span>Forgot password?</span></p>
 
-            <div class = "buttons-area-log">
-                <button onclick="window.location.href='/messages'" class = "strange-btn">Continue</button>
-            </div>
+                <p class = "p-text"><span>Forgot password?</span></p>
 
-            <p class = "p-text">Don't have an account? <span>Sign up</span></p>
+                <div class = "buttons-area-log">
+                    <button type="submit" id="continue-btn" class = "strange-btn" disabled>Continue</button>
+                </div>
+            </form>
+
+            <p class = "p-text">Don't have an account? <span onclick="window.location.href='/sign'">Sign up</span></p>
         </div>
     </div>
-
 </section>
-
-
-
-
-    {% block scripts %}
-    <script src="{{ url_for('static', filename='js/acc.js') }}"></script>
-    {% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/login-pass.js') }}"></script>
 {% endblock %}
-
+{% endblock %}
