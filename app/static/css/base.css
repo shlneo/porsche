@@ -1216,7 +1216,7 @@ footer section div span{
 .models-page-header{
     width: 100%;
     text-align: left;
-    max-width: 1400px;
+    max-width: 1000px;
 }
 
 .models-page-header h1{
@@ -1989,6 +1989,38 @@ footer section div span{
 .bar-info img {
     width: 70px;
     height: auto;
+}
+
+.status-cont hr {
+    border: none;
+    border-top: 0.5px solid var(--hr-color);
+    width: 100%;
+    
+    margin: 20px 0;
+}
+
+.status-personal-data-cont{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.status-personal-data-cont .column{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.status-personal-data-cont .column .row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.status-personal-data-cont .column .row img{
+    width: 30px;
+    height: 30px;
 }
 
 

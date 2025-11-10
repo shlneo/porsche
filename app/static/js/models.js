@@ -237,7 +237,8 @@ class ModelLoader {
     createModelCard(model) {
         const card = document.createElement('a');
         card.className = 'model-card';
-        card.href = `#`;
+        // Изменяем href на правильный эндпоинт
+        card.href = `/models/${model.series}/${model.subseries}`;
         
         const engineType = this.getEngineType(model);
         const engineBadge = engineType === 'Electric' ? 'Electric' : 
@@ -275,7 +276,34 @@ class ModelLoader {
         `;
 
         this.addButtonHandlers(card, model);
+        
+        // Добавляем обработчик клика на всю карточку
+        card.addEventListener('click', (e) => {
+            // Если клик был по кнопке, не переходим по ссылке
+            if (e.target.closest('.model-btns')) {
+                e.preventDefault();
+            }
+            // В остальных случаях стандартное поведение ссылки
+        });
+
         return card;
+    }
+
+    addButtonHandlers(card, model) {
+        const selectBtn = card.querySelector('.black-btn');
+        const compareBtn = card.querySelector('.black-border-btn');
+
+        selectBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Предотвращаем всплытие до карточки
+            this.handleSelectModel(model);
+        });
+
+        compareBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Предотвращаем всплытие до карточки
+            this.handleCompareModel(model);
+        });
     }
 
     getEngineType(model) {
