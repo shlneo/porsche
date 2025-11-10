@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash
 def create_database(app, db):
     from .models import Model, User
     with app.app_context():
-        # db.drop_all()
+        db.drop_all()
         db.create_all()
         add_data_in_db(db)
         
@@ -68,7 +68,7 @@ def import_models(db, excel_path):
 def import_users(db):
     from .models import User
     users_data = [
-        ('tw1che.2k@gmail.com', 'Sidarau', 'Maksim', 'Andreevich', '+375445531847', generate_password_hash(os.getenv('userpass')), True, False),
+        ('tw1che.2k@gmail.com', 'Sidarau', 'Maksim', 'Andreevich', '+375445531847', generate_password_hash(os.getenv('userpass')), True, False)
     ]
 
     added_count = 0
