@@ -69,13 +69,14 @@
                     <button class = "black-btn">Complete your profile</button>
                 </div>
             </div>
+            <div class="column">
+                <div class = "row">
+                    <button class = "strange-btn-wh" onclick="window.location.href='/profile/messages'">Messages</button>
+                </div>
+            </div>
         </div>
     </div>
-
-
 </div>
-
-
     {% block scripts %}
     <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
     {% endblock %}

@@ -114,6 +114,18 @@ def profile():
                         black_header=True
     )
 
+# @auth.route('/profile/messages', methods=['GET', 'POST'])
+# def profile_messages():
+#     if request.method == 'POST':
+#         pass 
+        
+#     return render_template(
+#         'messages.html',
+#         current_user=current_user,
+#                         hide_header=True,
+#                         black_header=True
+#     )
+
 def generate_captcha():
     captcha_text = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
     session['captcha'] = captcha_text

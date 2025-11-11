@@ -225,7 +225,7 @@
                 {% if current_user.is_authenticated %}
                   <a href="" class="arrow-area">My Porsche App</a>
                 {% endif %}
-                <a href="" class="arrow-area">Messages</a>
+                <a href="/profile/messages" class="arrow-area">Messages</a>
                 {% if current_user.is_authenticated %}
                   <a href="" class="arrow-area">Saved Searches</a>
                   <a href="" class="arrow-area">Saved Vehicles</a>
@@ -245,27 +245,6 @@
             </div>
           </div>
         </div>
-    </div>
-    {% endif %}
-    {% if show_circle_buttons %}
-    <div class="circle-buttons-container">
-      <button class="circle-button" onclick="window.location.href='/FAQ'">
-        <img src="{{ url_for('static', filename='img/FAQ.svg') }}" alt="{{ _('FAQ') }}" class="circle-button-icon">
-      </button>
-      <button class="circle-button" onclick="window.location.href='/profile'">
-        <img src="{{ url_for('static', filename='img/Account.svg') }}" alt="{{ _('Аккаунт') }}" class="circle-button-icon">
-      </button>
-      <div class="language-dropdown">
-        <button class="circle-button language-button">
-          <img src="{{ url_for('static', filename='img/Language.svg') }}" alt="{{ _('Язык') }}" class="circle-button-icon">
-        </button>
-        <div class="language-dropdown-content">
-          <a href="{{ url_for('views.change_language', lang_code='ru') }}">Русский</a>
-          <a href="{{ url_for('views.change_language', lang_code='en') }}">English</a>
-          <a href="{{ url_for('views.change_language', lang_code='be') }}">Беларускiй</a>
-        </div>
-      </div>
-      
     </div>
     {% endif %}
 

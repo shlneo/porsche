@@ -31,7 +31,6 @@ def models(series=None):
                         black_header=True
                         )
     
-    
 @views.route('/api/models', methods=['GET'])
 def get_models():
     page = request.args.get('page', 1, type=int)
@@ -89,15 +88,6 @@ def get_series_counts():
     counts_dict['All'] = total_count
     
     return jsonify(counts_dict)
-
-@views.route('/messages')
-def messages(methods=['POST', 'GET']):
-    if request.method == 'GET':
-        return render_template('messages.html', 
-                            current_user=current_user,
-                            hide_header=True,
-                            black_header=True
-                            )
     
 @views.route('/models/<series>/<subseries>')
 def model_detail(series, subseries):
