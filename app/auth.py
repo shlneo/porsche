@@ -18,22 +18,17 @@ import base64
 auth = Blueprint('auth', __name__)
 login_manager = LoginManager()
 
-
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         porsche_id = request.form.get('porsche_id')
         captcha = request.form.get('captcha')
         
-        # Здесь добавьте валидацию CAPTCHA
-        
         if porsche_id:
-            # Сохраняем Porsche ID в сессии для использования в login_password
             session['porsche_id'] = porsche_id
             return redirect(url_for('auth.login_password'))
         
         flash('Please enter your Porsche ID.', 'error')
-    
     return render_template(
         'login.html',
         hide_header=True,
@@ -50,6 +45,14 @@ def sign():
         hide_header = True,
         current_user=current_user
     )
+
+@auth.route('/logout', methods=['POST', 'GET'])
+@login_required
+def logout():
+    logout_user()
+    
+    flash('Logout.', 'success')
+    return redirect(url_for('views.catalog'))
 
 @auth.route('/login/password', methods=['GET', 'POST'])
 def login_password():

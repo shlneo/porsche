@@ -24,12 +24,14 @@
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-image-container">
-                        <img src="{{ url_for('static', filename='img/cars/macan-electric/1.jpg') }}" class="header-img" alt="{{ _('car') }}">
+                        <img src="{{ url_for('static', filename='img/cars/macan/macan-electic-pre-catalog.webp') }}" class="header-img" alt="{{ _('car') }}">
                         <div class="card-overlay">
                             <div class="card-content">
                                 <h3 class="card-title">{{ _('Macan Electric') }}.</h3>
-                                <div class="arrow-area">
-                                    <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                                <div class="arrow-area" onclick="window.location.href='/models/Macan/Macan%20Electric'">
+                                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -37,25 +39,29 @@
                 </div>
                 <div class="card">
                     <div class="card-image-container">
-                        <img src="{{ url_for('static', filename='img/cars/carrera-t/1.webp') }}" class="header-img" alt="{{ _('car') }}">
-                        <div class="card-overlay"> 
-                            <div class="card-content">
-                                <h3 class="card-title">{{ _('911 Carrera T') }}.</h3>
-                                <div class="arrow-area">
-                                    <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image-container">
-                        <img src="{{ url_for('static', filename='img/cars/panamera-turbo-E-Hybrid/2.jpg') }}" class="header-img" alt="{{ _('car') }}">
+                        <img src="{{ url_for('static', filename='img/cars/cayenne/cayenne-pre-catalog.webp') }}" class="header-img" alt="{{ _('car') }}">
                         <div class="card-overlay">
                             <div class="card-content">
-                                <h3 class="card-title">{{ _('Panamera Turbo E-Hybrid') }}.</h3>   
-                                <div class="arrow-area">
-                                    <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                                <h3 class="card-title">{{ _('Cayenne') }}.</h3>   
+                                <div class="arrow-area" onclick="window.location.href='/models/Cayenne/Cayenne'">
+                                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="{{ url_for('static', filename='img/cars/taycan/taycan-pre-catalog.webp') }}" class="header-img" alt="{{ _('car') }}">
+                        <div class="card-overlay"> 
+                            <div class="card-content">
+                                <h3 class="card-title">{{ _('Taycan Sport Turismo') }}.</h3>
+                                <div class="arrow-area" onclick="window.location.href='/models/Taycan/Taycan%20Sport%20Turismo'">
+                                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +69,7 @@
                 </div>
             </div>
             <div class="text-under-cards">
-                {{ _('Macan Electric: Electrical consumption combined (WLTP): 19.8 – 17.0 kWh/100 km, CO₂-emissions combined (WLTP): 0 g/km | 911 Carrera T: Fuel consumption combined (model range): 10.9 – 10.4 l/100 km, CO₂-emissions combined (model range): 248 – 237 g/km | Panamera Turbo E-Hybrid: Fuel consumption (weighted) combined (model range): 4.3 – 3.5 l/100 km, Electric energy consumption (weighted) combined (model range): 29.5 – 18.8 kWh/100 km, CO₂-emissions (weighted) combined (model range): 99 – 81 g/km, Fuel consumption (sustaining) combined (model range): 11.0 – 10.0 l/100 km') }}
+                {{ _('Macan Electric: Electric energy consumption combined (model range): 20.4 – 17.8 kWh/100 km, CO₂-emissions combined (model range): 0 g/km | Cayenne: Fuel consumption combined (model range): 11.7 – 10.7 l/100 km, CO₂-emissions combined (model range): 266 – 243 g/km | Taycan Turbo Cross Turismo: Electric energy consumption combined (model range): 21.4 – 18.9 kWh/100 km, CO₂-emissions combined (model range): 0 g/km') }}
             </div>
         </div>
     </div>
@@ -84,9 +90,11 @@
                 <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
                 <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}</div>
                 </div>  
-                <div class="arrow-area">  
-                <p class="arrow-area-text">{{ _('Explore') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                <div class="arrow-area" onclick="window.location.href='/models/911'">
+                    <p class="arrow-area-text">{{ _('Explore') }}</p>            
+                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
             </div>
             </div>
@@ -100,14 +108,16 @@
             </div>
             <div class="car-info">
                 <div class="car-footer">
-                <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
-                <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
+                    <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
+                    <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
                 </div>  
-                <div class="arrow-area">  
-                <p class="arrow-area-text">{{ _('Explore') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                <div class="arrow-area" onclick="window.location.href='/models/718'">
+                    <p class="arrow-area-text">{{ _('Explore') }}</p>            
+                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
-            </div>
+                </div>
             </div>
         </div>
         <div class="Car-Range-row">
@@ -124,9 +134,11 @@
                 <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
                 <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}</div>
                 </div>  
-                <div class="arrow-area">  
-                <p class="arrow-area-text">{{ _('Explore') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                <div class="arrow-area" onclick="window.location.href='/models/Taycan'">
+                    <p class="arrow-area-text">{{ _('Explore') }}</p>            
+                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
             </div>
             </div>
@@ -143,9 +155,11 @@
                 <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
                 <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
                 </div>  
-                <div class="arrow-area">  
-                <p class="arrow-area-text">{{ _('Explore') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                <div class="arrow-area" onclick="window.location.href='/models/Panamera'">
+                    <p class="arrow-area-text">{{ _('Explore') }}</p>            
+                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
             </div>
             </div>
@@ -164,9 +178,11 @@
                 <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
                 <div class="car-description">{{ _('Iconic sports car with rear engine: 2 doors, 2+2 seats') }}</div>
                 </div>  
-                <div class="arrow-area">  
-                <p class="arrow-area-text">{{ _('Explore') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                <div class="arrow-area" onclick="window.location.href='/models/Macan'">
+                    <p class="arrow-area-text">{{ _('Explore') }}</p>            
+                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
             </div>
             </div>
@@ -183,9 +199,11 @@
                 <div class="car-type"><span>{{ _('Gasoline') }}</span></div>
                 <div class="car-description">{{ _('Precise mid-engine sports car: 2 doors, 2 seats') }}</div>
                 </div>  
-                <div class="arrow-area">  
-                <p class="arrow-area-text">{{ _('Explore') }}</p>
-                <img src="{{ url_for('static', filename='img/arrow.svg') }}" class="card-arrow" alt="{{ _('arrow') }}">
+                <div class="arrow-area" onclick="window.location.href='/models/Cayenne'">
+                    <p class="arrow-area-text">{{ _('Explore') }}</p>            
+                    <svg class="card-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M12 2L5 9M12 2L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
             </div>
             </div>

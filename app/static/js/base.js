@@ -87,12 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
       fuelType: 'Gasoline',
       variants: [
         {
-          name: '718 Cayman',
+          name: 'Cayman',
           variantsCount: '4 Model variants',
           fuelType: 'Gasoline'
         },
         {
-          name: '718 Boxster', 
+          name: 'Boxster', 
           variantsCount: '4 Model variants',
           fuelType: 'Gasoline'
         }
@@ -103,17 +103,17 @@ document.addEventListener('DOMContentLoaded', function() {
       fuelType: 'Gasoline',
       variants: [
         {
-          name: '911 Carrera',
+          name: 'Carrera',
           variantsCount: '6 Model variants',
           fuelType: 'Gasoline'
         },
         {
-          name: '911 Carrera Cabriolet',
+          name: 'Carrera Cabriolet',
           variantsCount: '6 Model variants', 
           fuelType: 'Gasoline'
         },
         {
-          name: '911 Targa 4S',
+          name: 'Targa 4S',
           variantsCount: '2 Model variants',
           fuelType: 'Gasoline'
         }
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
           fuelType: 'Hybrid | Gasoline'
         },
         {
-          name: 'Panamera 4 E-Hybrid Executive',
+          name: 'Panamera 4 E-Hybrid',
           variantsCount: '6 Model variants',
           fuelType: 'Hybrid | Gasoline'
         }
@@ -247,8 +247,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const isActive = modelId === activeModelId;
       newLeftSideHTML += `
         <button class="side-button ${isActive ? 'active' : ''}" data-model="${modelId}">
-          <p>${modelData[modelId].title}</p>
-          <img src="/static/img/arrow2.svg">
+          <div class = "side-button-info">
+            <p>${modelData[modelId].title}</p>
+            <img src="/static/img/arrow2.svg">
+          </div>
         </button>
       `;
     });

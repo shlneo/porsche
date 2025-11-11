@@ -98,3 +98,20 @@ def messages(methods=['POST', 'GET']):
                             hide_header=True,
                             black_header=True
                             )
+    
+@views.route('/models/<series>/<subseries>')
+def model_detail(series, subseries):
+    model = Model.query.filter_by(
+        series=series, 
+        subseries=subseries
+    ).first()
+    
+    if not model:
+        abort(404)
+    
+    return render_template('model_detail.html', 
+                        current_user=current_user,
+                        model=model,
+                        hide_header=True,
+                        black_header=True
+                        )
