@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.svg')}}">
+    <title>{% block title %}{{ _('Porsche - NonOfficial Website') }}{% endblock %}</title>
+  </head>
+  <body>
+    {% if not hide_header %}
+    <header>
+        <nav>
+            <div class="header-aside">
+              <div class="menu-container" id = "dop-menu-btn" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="menu-icon">
+                    <path d="M0 1h30M0 10h30M0 19h30" stroke="white" stroke-width="2"/>
+                </svg>
+                  <label class="menu-label">{{ _('Menu') }}</label>
+              </div>
+            </div>
+            <div class="header-bside" onclick="window.location.href='/'">
+                <svg class = "title-porsche" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4500 300"><path d="M502 221c48.1 0 74-25.9 74-74V74c0-48.1-25.9-74-74-74H0v300h68v-79h434zm6-143v65c0 7.8-4.2 12-12 12H68V66h428c7.8 0 12 4.2 12 12zm228 222c-48.1 0-74-25.9-74-74V74c0-48.1 25.9-74 74-74h417c48.1 0 74 25.9 74 74v152c0 48.1-25.9 74-74 74H736zm411-66c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12H742c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h405zm675-36c39.844 16.757 67.853 56.1 68 102h-68c0-54-25-79-79-79h-361v79h-68V0h502c48.1 0 74 25.9 74 74v50.14c0 46.06-23.75 71.76-68 73.86zm-12-43c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12h-428v89h428zm162-81c0-48.1 25.9-74 74-74h492v56h-486c-7.8 0-12 4.2-12 12v42c0 7.8 4.2 12 12 12h422c48.1 0 74 25.9 74 74v30c0 48.1-25.9 74-74 74h-492v-56h486c7.8 0 12-4.2 12-12v-42c0-7.8-4.2-12-12-12h-422c-48.1 0-74-25.9-74-74V74zm661 0c0-48.1 25.9-74 74-74h480v66h-474c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h474v66h-480c-48.1 0-74-25.9-74-74V74zM3817 0v300h-68V183h-407v117h-68V0h68v117h407V0h68zm156 56v66h527v56h-527v66h527v56h-595V0h595v56h-527z"></path></svg>
+                <div class="menu-tooltip">{{ _('Porsche.com') }}</div>
+            </div>
+            <div class="header-cside">
+                <div class="menu-container" id="dop-menu-btn" onclick="window.location.href='{{ url_for('auth.profile') if current_user.is_authenticated else url_for('auth.login') }}'">
+                  <img src="{{ url_for('static', filename='img/' + ('user-filled.svg' if current_user.is_authenticated else 'user.svg')) }}" class="user-img invers">   
+                </div>
+                <div class="menu-tooltip">{{ _('User') }}</div>
+            </div>
+        
+        </nav>
+    </header>
+    {% endif %}
+
+    {% if black_header %}
+    <header class = "white">
+        <nav>
+            <div class="header-aside">
+              <div class="menu-container" id = "dop-menu-btn" >
+                  <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="menu-icon">
+                      <path d="M0 1h30M0 10h30M0 19h30" stroke="black" stroke-width="2"/>
+                  </svg>
+                  <label class="menu-label black">{{ _('Menu') }}</label>
+              </div>
+            </div>
+            <div class="header-bside" onclick="window.location.href='/'">
+                <svg class = "title-porsche black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 4500 300"><path d="M502 221c48.1 0 74-25.9 74-74V74c0-48.1-25.9-74-74-74H0v300h68v-79h434zm6-143v65c0 7.8-4.2 12-12 12H68V66h428c7.8 0 12 4.2 12 12zm228 222c-48.1 0-74-25.9-74-74V74c0-48.1 25.9-74 74-74h417c48.1 0 74 25.9 74 74v152c0 48.1-25.9 74-74 74H736zm411-66c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12H742c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h405zm675-36c39.844 16.757 67.853 56.1 68 102h-68c0-54-25-79-79-79h-361v79h-68V0h502c48.1 0 74 25.9 74 74v50.14c0 46.06-23.75 71.76-68 73.86zm-12-43c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12h-428v89h428zm162-81c0-48.1 25.9-74 74-74h492v56h-486c-7.8 0-12 4.2-12 12v42c0 7.8 4.2 12 12 12h422c48.1 0 74 25.9 74 74v30c0 48.1-25.9 74-74 74h-492v-56h486c7.8 0 12-4.2 12-12v-42c0-7.8-4.2-12-12-12h-422c-48.1 0-74-25.9-74-74V74zm661 0c0-48.1 25.9-74 74-74h480v66h-474c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h474v66h-480c-48.1 0-74-25.9-74-74V74zM3817 0v300h-68V183h-407v117h-68V0h68v117h407V0h68zm156 56v66h527v56h-527v66h527v56h-595V0h595v56h-527z"></path></svg>
+                <div class="menu-tooltip">{{ _('Porsche.com') }}</div>
+            </div>
+            <div class="header-cside">
+                <div class="menu-container" id="dop-menu-btn" onclick="window.location.href='{{ url_for('auth.profile') if current_user.is_authenticated else url_for('auth.login') }}'">
+                  <img src="{{ url_for('static', filename='img/' + ('user-filled.svg' if current_user.is_authenticated else 'user.svg')) }}" class="user-img">  
+                </div>
+                <div class="menu-tooltip">{{ _('User') }}</div>
+            </div>
+        </nav>
+    </header>
+    {% endif %}
+    
+    {% if not hide_side_menu %}
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu">
+        <button class="close-btn" id="close-menu">
+          <img src="{{ url_for('static', filename='img/close.svg') }}">
+        </button>
+        <div class="menu-content">
+          <div class="left-side">
+            <div class="left-side-buttons">
+              <button class="side-button active" data-tab="models">
+                <div class = "side-button-info">
+                  <p>{{ _('Models') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
+                
+              </button>
+              <button class="side-button" data-tab="purchase">
+                <div class = "side-button-info">
+                  <p>{{ _('Vehicle Purchase') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
+              </button>
+            
+              <button class="side-button" data-tab="services">
+                <div class = "side-button-info">
+                  <p>{{ _('Services') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+              </div>
+              </button>
+              <button class="side-button" data-tab="experience">
+                <div class = "side-button-info">
+                  <p>{{ _('Experience') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
+              </button>
+              <button class="side-button" data-tab="dealer">
+                <div class = "side-button-info">
+                  <p>{{ _('Find a Dealer') }}</p>
+                  <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                </div>
+              </button>
+            </div>
+            <div class="left-side-buttons">
+              <div class = "user-cont-btn-with-img">
+                <button class="side-button" data-tab="user">
+                  <svg class="side-button-main-img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <div class="side-button-info">
+                    {% if current_user.is_authenticated %}
+                      <div class="reg-user-cont">
+                          <p>{{ _('Account') }}</p>
+                          <p class="p2">{{ current_user.first_name }} {{ current_user.last_name }} </p>
+                      </div>
+                    {% else %}
+                      <p>{{ _('User') }}</p>
+                    {% endif %}
+                    <img src="{{ url_for('static', filename='img/arrow2.svg') }}">
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="right-side tab-content active" id="models-tab">   
+            <div class="model-category">
+              <div class="car-card" data-model="718">
+                <p class="model-name">718</p>
+                <img src="{{ url_for('static', filename='img/cars/menu-img/718.webp') }}">
+                <div class="car-types">
+                  <span>Gasoline</span>
+                </div>
+              </div>
+              <div class="car-card" data-model="911">
+                <p class="model-name">911</p>
+                <img src="{{ url_for('static', filename='img/cars/menu-img/911.webp') }}">
+                <div class="car-types">
+                  <span>Gasoline</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="model-category">
+              <div class="car-card" data-model="taycan">
+                <p class="model-name">Taycan</p>
+                <img src="{{ url_for('static', filename='img/cars/menu-img/taycan.webp') }}">
+                <div class="car-types">
+                  <span>Electric</span>
+                </div>
+              </div>
+              <div class="car-card" data-model="panamera">
+                <p class="model-name">Panamera</p>
+                <img src="{{ url_for('static', filename='img/cars/menu-img/panamera.webp') }}">
+                <div class="car-types">
+                  <span>Hybrid</span>
+                  <span>Gasoline</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="model-category">
+              <div class="car-card" data-model="macan">
+                <p class="model-name">Macan</p>
+                <img src="{{ url_for('static', filename='img/cars/menu-img/macan.webp') }}">
+                <div class="car-types">
+                  <span>Electric</span>
+                </div>
+              </div>
+              <div class="car-card" data-model="cayenne">
+                <p class="model-name">Cayenne</p>
+                <img src="{{ url_for('static', filename='img/cars/menu-img/cayenne.webp') }}">
+                <div class="car-types">
+                  <span>Hybrid</span>
+                  <span>Gasoline</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="right-side tab-content model-detail" id="model-detail-tab">
+            <div class="model-detail-content">
+            </div>
+          </div>
+          
+          <div class="right-side tab-content" id="purchase-tab">
+            <div class="purchase-content">
+              <a href="" class="arrow-area">Configure</a>
+              <a href="" class="arrow-area">Compare Models</a>
+              <a href="" class="arrow-area">Find New and Pre-owned Vehicles</a>
+              <a href="" class="arrow-area">E-Mobility & E-Performance</a>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="services-tab">
+            <div class="services-content">
+              <a href="" class="arrow-area">Service & Maintenance</a>
+              <a href="" class="arrow-area">Vehicle Accessories</a>
+              <a href="" class="arrow-area">Individualisation</a>
+              <a href="" class="arrow-area">Classic – Service & Parts</a>
+              <a href="" class="arrow-area">Approved – Pre-owned Cars & Warranty</a>
+              <a href="" class="arrow-area">Porsche Card</a>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="experience-tab">
+            <div class="experience-content">
+              <a href="" class="arrow-area">Motorsport</a>
+              <a href="" class="arrow-area">Porsche Experience – Driving & Track Experiences</a>
+              <a href="" class="arrow-area">Porsche Communities</a>
+              <a href="" class="arrow-area">Golf Sports</a>
+              <a href="" class="arrow-area">Stories – People. Passion. Places.</a>
+              <a href="" class="arrow-area">Christophorus – The Porsche Magazine</a>
+              <a href="" class="arrow-area">Visit the Museum & Factory</a>
+            </div>
+          </div>
+          <div class="right-side tab-content" id="dealer-tab">
+            <div class="dealer-content">
+              <a href="" class="arrow-area">To dealer</a>
+              <a href="" class="arrow-area">...</a>
+            </div>  
+          </div>
+          <div class="right-side tab-content" id="user-tab">
+            <div class="user-content">
+                {% if current_user.is_authenticated %}
+                  <a href="" class="arrow-area">My Porsche App</a>
+                {% endif %}
+                <a href="/profile/messages" class="arrow-area">Messages</a>
+                {% if current_user.is_authenticated %}
+                  <a href="" class="arrow-area">Saved Searches</a>
+                  <a href="" class="arrow-area">Saved Vehicles</a>
+                {% endif %}
+
+
+                <a href="" class="arrow-area">Find Connect Services</a>
+                <a href="/profile" class="arrow-area">Profile</a>
+
+                
+
+                {% if current_user.is_authenticated %}
+                  <button class="strange-btn" onclick="window.location.href='/logout'">Logout</button>
+                {% else %}
+                  <button class="strange-btn" onclick="window.location.href='/login'">Log in</button>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <main> 
+    <div id="flash-container"></div>
+      {% block content %} 
+      {% endblock %}
+
+      {% block javascript %} 
+        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            messageFlash.init();
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        messageFlash.addMessage({{ message|tojson }}, "{{ category }}");
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        });
+        </script>
+
+      {% endblock %}
+    </main>
+    {% if not hide_footer %}
+    <footer>
+      <div class = "current-reg">
+        <div class = "cur-reg-title">{{ _('Current Region / Language') }}</div>
+        <div class = "country-leng-text">
+            <div class="logo-leng-countr">
+              <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 24 24" width="100%" height="100%" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+                <style type="text/css">
+                  .st0{fill:#FFFFFF;}
+                </style>
+                <path class="st0" d="M12,0C5.4,0,0,5.4,0,12s5.4,12,12,12s12-5.4,12-12S18.6,0,12,0z M21.9,8h-4.8c-0.2-2.1-0.8-4.2-1.8-6.1
+                  C18.3,2.8,20.7,5.1,21.9,8z M16,12c0,0.9,0,1.8-0.1,2.7H8.1C8,13.9,8,13,8,12s0-1.8,0.1-2.7h7.8C16,10.2,16,11.1,16,12z M12,22.7
+                  c-0.5,0-1,0-1.5-0.1c-1.3-2-2-4.2-2.2-6.5h7.4c-0.2,2.3-1,4.6-2.2,6.5C13,22.6,12.5,22.7,12,22.7z M8.3,8c0.2-2.3,1-4.6,2.2-6.5
+                  c0.5-0.1,1-0.1,1.5-0.1s1,0,1.5,0.1c1.3,2,2,4.2,2.2,6.5H8.3z M8.7,1.9C7.8,3.8,7.2,5.9,6.9,8H2.1C3.3,5.1,5.7,2.8,8.7,1.9z
+                  M1.7,9.3h5.1C6.7,10.2,6.7,11,6.7,12s0,1.8,0.1,2.7H1.7C1.2,12.9,1.2,11.1,1.7,9.3z M2.1,16h4.8c0.2,2.1,0.9,4.2,1.8,6.1
+                  C5.7,21.2,3.3,18.9,2.1,16z M15.3,22.1c0.9-1.9,1.5-4,1.8-6.1h4.8C20.7,18.9,18.3,21.2,15.3,22.1z M22.3,14.7h-5.1
+                  c0.1-0.9,0.1-1.7,0.1-2.7s0-1.8-0.1-2.7h5.1C22.8,11.1,22.8,12.9,22.3,14.7z"/>
+              </svg>
+              <span>{{ _('International / English') }}</span>
+              <a class = "arrow-area">{{ _('Change') }}</a>
+          </div>
+        </div>        
+        <div class="content">
+          <div class="col">
+            <div class = "cur-reg-title">{{ _('Locations & Contacts') }}</div>
+            <div class = "cur-reg-subtitle space">{{ _('Do you have any questions?') }}</div>
+            <a href="" class = "cur-reg-btn">{{ _('Get in touch') }}</a>
+          </div>
+          <div class="col">
+            <div class = "cur-reg-title">{{ _('Social Media') }}</div>
+            <div class = "cur-reg-subtitle space">{{ _('Get in touch with us via social media.') }}</div>
+              <div class = "social-btns">
+                <a href="" class = "cur-reg-btn social">
+                  <img src="{{ url_for('static', filename='img/logo-facebook.svg') }}" alt="">
+                </a>
+                <a href="" class = "cur-reg-btn social">
+                  <img src="{{ url_for('static', filename='img/logo-instagram.svg') }}" alt="">
+                </a>
+                <a href="" class = "cur-reg-btn social">
+                  <img src="{{ url_for('static', filename='img/logo-pinterest.svg') }}" alt="">
+                </a>
+                <a href="" class = "cur-reg-btn social">
+                  <img src="{{ url_for('static', filename='img/logo-youtube.svg') }}" alt="">
+                </a>
+                <a href="" class = "cur-reg-btn social">
+                  <img src="{{ url_for('static', filename='img/logo-twitter.svg') }}" alt="">
+                </a>
+                <a href="" class = "cur-reg-btn social">
+                  <img src="{{ url_for('static', filename='img/logo-linkedin.svg') }}" alt="">
+                </a>
+              </div>
+          </div>
+        </div>   <div class = "cur-reg-title">{{ _('Company') }}</div>     
+        <div class="content gapper">
+          <div class="col">
+            <div class = "cur-reg-subtitle arrow-area">{{ _('Investor Relations') }}</div>
+            <div class = "cur-reg-subtitle arrow-area">{{ _('Compliance') }}</div>
+          </div>
+          <div class="col">
+            <div class = "cur-reg-subtitle arrow-area">{{ _('Career') }}</div>
+            <div class = "cur-reg-subtitle arrow-area">{{ _('Newsroom & Press') }}</div>
+          </div>
+          <div class="col">
+            <div class = "cur-reg-subtitle arrow-area">{{ _('Global Partnership Council') }}</div>
+            <div class = "cur-reg-subtitle arrow-area">{{ _('Information Security') }}</div>
+          </div>
+        </div>
+        <hr>
+        <section>
+          <div>
+              © 2025 Dr. Ing. h.c. F. Porsche AG. 
+              <span class="arrow-area">Legal Notice.</span>
+              <span class="arrow-area">Privacy Policy.</span>
+              <span class="arrow-area">Cookie Policy.</span>
+              <span class="arrow-area">Consumption/Emissions.</span>
+              <span class="arrow-area">Open Source Software Notice.</span>
+              <span class="arrow-area">Whistleblower System.</span>
+              <span class="arrow-area">Accessibility.</span>
+          </div>
+          <div>{{ _('* If the values are given as ranges, these do not relate to a single, individual vehicle and do not constitute part of the offer. They are intended solely as a means of comparing different vehicle models and refer to the product portfolio that is available on the German market. Extra features and accessories (attachments, tyre formats etc.) can change relevant vehicle parameters such as weight, rolling resistance and aerodynamics and, in addition to weather and traffic conditions, as well as individual handling, can affect the fuel consumption, energy consumption, CO₂ emissions, range and performance values of a car.') }}</div>
+          <div>{{ _('** Important information about the all-electric Porsche models can be found ') }} <span class="arrow-area">here.</span></div>
+        
+        </section>
+        <div class = "header-bside" style = "margin-top: 30px;">
+          <svg class = "title-porsche" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4500 300"><path d="M502 221c48.1 0 74-25.9 74-74V74c0-48.1-25.9-74-74-74H0v300h68v-79h434zm6-143v65c0 7.8-4.2 12-12 12H68V66h428c7.8 0 12 4.2 12 12zm228 222c-48.1 0-74-25.9-74-74V74c0-48.1 25.9-74 74-74h417c48.1 0 74 25.9 74 74v152c0 48.1-25.9 74-74 74H736zm411-66c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12H742c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h405zm675-36c39.844 16.757 67.853 56.1 68 102h-68c0-54-25-79-79-79h-361v79h-68V0h502c48.1 0 74 25.9 74 74v50.14c0 46.06-23.75 71.76-68 73.86zm-12-43c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12h-428v89h428zm162-81c0-48.1 25.9-74 74-74h492v56h-486c-7.8 0-12 4.2-12 12v42c0 7.8 4.2 12 12 12h422c48.1 0 74 25.9 74 74v30c0 48.1-25.9 74-74 74h-492v-56h486c7.8 0 12-4.2 12-12v-42c0-7.8-4.2-12-12-12h-422c-48.1 0-74-25.9-74-74V74zm661 0c0-48.1 25.9-74 74-74h480v66h-474c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h474v66h-480c-48.1 0-74-25.9-74-74V74zM3817 0v300h-68V183h-407v117h-68V0h68v117h407V0h68zm156 56v66h527v56h-527v66h527v56h-595V0h595v56h-527z"></path></svg>
+          <div class="menu-tooltip">{{ _('Porsche.com') }}</div>
+        </div>
+      </div>
+
+    </footer>
+    {% endif%}
+  </body> 
+</html>

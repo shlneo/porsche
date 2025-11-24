@@ -8,4 +8,6 @@
 .venv/
 .env
 
-website/__pycache__
+app/__pycache__
+app/static/video
+app/static/files/porsche_full_model_lineup.xlsx

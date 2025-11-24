@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Porsche {{ model.series }} {{ model.subseries }}{% endblock %}
+
+{% block content %}
+    <section class="model-side-cont">
+        <div class="model-intro-gradient"></div>
+        <div class="model-intro-signature">
+            <img src="{{ url_for('static', filename='img/model-signatures/' + model.series + '.svg') }}" alt="{{ model.series }}">
+        </div>
+        <div class = "side-img-car-cont">
+            <img src="{{ url_for('static', filename='img/cars/' + model.series + '/' + model.subseries.lower() + '-side.avif') }}" alt="{{ model.series }} {{ model.subseries }}">
+        </div>
+        <div class="ModelIntro_contentRow">
+            <h1>{{ model.subseries }}</h1>
+            <div>
+                {% if model.is_gazoline %}
+                <div class="car-type">
+                    <span>Gasoline</span>
+                </div>
+                {% endif %}
+                
+                {% if model.is_electric %}
+                <div class="car-type">
+                    <span>Electric</span>
+                </div>
+                {% endif %}
+                
+                {% if model.is_hybrid %}
+                <div class="car-type">
+                    <span>Hybrid</span>
+                </div>
+                {% endif %}
+            </div>
+            <p class="price-p">from £ 103,700.00 incl. VAT</p>
+            <div class="btn-intro">
+                <button class="strange-btn">Change model</button>
+                <button class="strange-btn-wh">Configure</button>
+                <button class="strange-btn-wh">Buy new and used cars</button>
+                <button class="strange-btn-wh">Book a Test Drive</button>
+            </div>
+            <div class = "dis-text">
+                <p>{{ model.description }}</p>
+            </div>
+        </div>
+    </section>
+    <div class="modeltechnical-haracteristics">
+        <div class="modeltechnical-left">
+            <div class="row">
+                <div class="row-upper">
+                    <div class="counter-container">
+                        <div class="counter-roller" data-target="{{ model.to100 }}" data-type="float">
+                            <div class="digit-wrapper">
+                                {% for i in range(0, 101) %}
+                                <span>{{ "%.1f"|format(i * 0.1) }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p>secs</p>
+                    </div>
+                </div>
+                <div class="row-footer">
+                    <p>Acceleration 0-62 mph (0-100 km/h) with Sport Chrono Package</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-upper">
+                    <div class="counter-container">
+                        <div class="counter-roller" data-target="{{ model.power|int }}" data-type="int">
+                            <div class="digit-wrapper">
+                                {% for i in range(0, 1001) %}
+                                <span>{{ i }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p>PS</p>
+                    </div>
+                </div>
+                <div class="row-footer">
+                    <p>Power (PS)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-upper">
+                    <div class="counter-container">
+                        <div class="counter-roller" data-target="{{ model.top_speed|int }}" data-type="int">
+                            <div class="digit-wrapper">
+                                {% for i in range(0, 401) %}
+                                <span>{{ i }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p>mph</p>
+                    </div>
+                </div>
+                <div class="row-footer">
+                    <p>Top speed</p>
+                </div>
+            </div>
+        </div>
+        <div class="modeltechnical-right">
+            <img src="{{ url_for('static', filename='img/cars/' + model.series + '/' + model.subseries.lower() + '-front.avif') }}" alt="{{ model.series }} {{ model.subseries }}">
+        </div>
+    </div>
+    <div class = "drive-cont">
+        <div class = "card-image-container">
+            <img src="{{ url_for('static', filename='img/cars/' + model.series + '/' + model.series + '-' + model.subseries.lower() + '-rear.avif') }}" alt="{{ model.series }} {{ model.subseries }}">
+        </div>
+        <div class="overlay-card-image-container">
+            <h3 class="card-title">{{ _('Drive') }}.</h3>
+            <p class="sub-title">Special traditions stand the test of time: the heart of the 911 still beats at the rear – and sets the pulse of Porsche enthusiasts racing even faster than it did 60 years ago.</p>
+        </div>
+        <div class="topic-explorer-slider">
+            <div class="header-slider">
+                <div class="p-tabs-bar">
+                    <button class="tab-button active" data-tab="0">Engine</button>
+                    <button class="tab-button" data-tab="1">Performance</button>
+                    <button class="tab-button" data-tab="2">PDK</button>
+                </div>
+                <div class="naw">
+                    <button class="before">
+                        <img src="{{ url_for('static', filename='img/back-icon.svg') }}" alt="">
+                    </button>
+                    <button class="next">
+                        <img src="{{ url_for('static', filename='img/back-icon.svg') }}" alt="">
+                    </button>
+                </div>
+            </div>
+            
+            <div class="body-slider" id="slider">
+                <div class="body-slider-container">
+                    <div class="body-slider-card active">
+                        <img src="{{ url_for('static', filename='img/cars/' + model.series + '/' + model.subseries.lower() + '-engine.png') }}" alt="{{ model.series }} {{ model.subseries }}">
+                        <div class="slider-card-info">
+                            <p>3.0-litre flat-6 engine.</p>
+                            <span>The powerful 3.0-litre 6-cylinder flat engine with twin turbochargers will give you goosebumps with its incomparable sound alone. The horizontally opposed construction and the traditional position in the rear end of the vehicle also allows for a low centre of gravity.</span>
+                        </div>
+                    </div>
+                    <div class="body-slider-card">
+                        <img src="{{ url_for('static', filename='img/cars/' + model.series + '/' + model.subseries.lower() + '-performance.png') }}" alt="{{ model.series }} {{ model.subseries }} PDK">
+                        <div class="slider-card-info">
+                            <p>Performance.</p>
+                            <span>Peak performance: 290 kW (394 PS). Top speed: 294 km/h. With this technical data, a maximum torque of 450 Nm and a sprint from 0 to 100 km/h in 4.1 s, it's highly unlikely that you will ever want to get out again.</span>
+                        </div>
+                    </div>
+                    <div class="body-slider-card">
+                        <img src="{{ url_for('static', filename='img/cars/' + model.series + '/' + model.subseries.lower() + '-pdk.png') }}" alt="{{ model.series }} {{ model.subseries }} Suspension">
+                        <div class="slider-card-info">
+                            <p>PDK.</p>
+                            <span>The 8-speed Porsche Doppelkupplung (PDK) allows extremely fast gear changes without interrupting the flow of power – even by a millisecond. The PDK combines sports tuning in 1st to 6th gear with efficient overdrive ratios (7th and 8th gear).</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination-contener">
+                <span class="bullet active" data-slide="0"></span>
+                <span class="bullet" data-slide="1"></span>
+                <span class="bullet" data-slide="2"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='js/mod.js') }}"></script>
+    {% endblock %}
+{% endblock %}

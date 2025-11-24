@@ -15,9 +15,9 @@
 
 ##Database Settings
 
-1. Make a user `...` and give him pass `...`.
+1. Make a user `kyrator` and give him pass `palletenjoer`.
 
-2. Create database `porsche_db` with superuser `...`.
+2. Create database `porsche_db` with superuser `kyrator`.
 
 ## Version
  

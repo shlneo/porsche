@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading - Porsche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 400px;
+            height: 45px;
+            color: #000000ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 1.5px;
+            margin: 0 auto 60px;
+            padding: 8px 15px;
+        }
+
+        .loading-container {
+            margin: 60px 0 80px;
+            position: relative;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .loading-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+        }
+
+        .porsche-loader {
+            width: calc(100% - 190px);
+            height: 4px;
+            background-color: #ffffffff;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .porsche-loader::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #000000ff, transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .home-button {
+            display: inline-block;
+            background-color: #ffffffff;
+            color: black;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #727272ff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .home-button:hover {
+            background-color: #e7e7e7ff;
+        }
+
+
+        .status-text {
+            font-size: 14px;
+            color: #666;
+            
+            letter-spacing: 0.5px;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4500 300"><path d="M502 221c48.1 0 74-25.9 74-74V74c0-48.1-25.9-74-74-74H0v300h68v-79h434zm6-143v65c0 7.8-4.2 12-12 12H68V66h428c7.8 0 12 4.2 12 12zm228 222c-48.1 0-74-25.9-74-74V74c0-48.1 25.9-74 74-74h417c48.1 0 74 25.9 74 74v152c0 48.1-25.9 74-74 74H736zm411-66c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12H742c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h405zm675-36c39.844 16.757 67.853 56.1 68 102h-68c0-54-25-79-79-79h-361v79h-68V0h502c48.1 0 74 25.9 74 74v50.14c0 46.06-23.75 71.76-68 73.86zm-12-43c7.8 0 12-4.2 12-12V78c0-7.8-4.2-12-12-12h-428v89h428zm162-81c0-48.1 25.9-74 74-74h492v56h-486c-7.8 0-12 4.2-12 12v42c0 7.8 4.2 12 12 12h422c48.1 0 74 25.9 74 74v30c0 48.1-25.9 74-74 74h-492v-56h486c7.8 0 12-4.2 12-12v-42c0-7.8-4.2-12-12-12h-422c-48.1 0-74-25.9-74-74V74zm661 0c0-48.1 25.9-74 74-74h480v66h-474c-7.8 0-12 4.2-12 12v144c0 7.8 4.2 12 12 12h474v66h-480c-48.1 0-74-25.9-74-74V74zM3817 0v300h-68V183h-407v117h-68V0h68v117h407V0h68zm156 56v66h527v56h-527v66h527v56h-595V0h595v56h-527z"></path></svg>
+        </div>
+        
+        <div class="loading-container">
+ 
+            <div class="loading-animation">
+                <div class="porsche-loader"></div>
+            </div>
+            
+            <div class="status-text">Initializing systems</div>
+        </div>
+        
+        <a href="/" class="home-button">
+            <i class="fas fa-home" style="margin-right: 8px;"></i>
+            Go to Home
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusText = document.querySelector('.status-text');
+            const messages = [
+                "Initializing systems",
+                "Checking performance metrics",
+                "Calibrating engine parameters",
+                "Finalizing setup",
+                "Ready to drive"
+            ];
+            
+            let currentIndex = 0;
+            
+            // Change status message every 2 seconds
+            const interval = setInterval(() => {
+                currentIndex++;
+                if (currentIndex < messages.length) {
+                    statusText.textContent = messages[currentIndex];
+                    
+                    // Add a subtle fade effect
+                    statusText.style.opacity = 0;
+                    setTimeout(() => {
+                        statusText.style.opacity = 1;
+                        statusText.style.transition = 'opacity 0.5s ease';
+                    }, 300);
+                } else {
+                    clearInterval(interval);
+                }
+            }, 2000);
+            
+            // Add hover effect to home button
+            const homeButton = document.querySelector('.home-button');
+            homeButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            homeButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

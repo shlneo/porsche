@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "models-page">
+    <div class = "models-page-header">
+        <h1>Model overview</h1>
+    </div>
+
+    <div class = "models-grid">
+        <div class="models-menu">
+            <nav>
+                <p>Models</p>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="All" checked>
+                    <a>All <span class="gray-text"></span></a>
+                </li>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="718">
+                    <a>718 <span class="gray-text"></span></a>
+                </li>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="911">
+                    <a>911 <span class="gray-text"></span></a>
+                </li>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="Taycan">
+                    <a>Taycan <span class="gray-text"></span></a>
+                </li>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="Panamera">
+                    <a>Panamera <span class="gray-text"></span></a>
+                </li>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="Macan">
+                    <a>Macan <span class="gray-text"></span></a>
+                </li>
+                <li>
+                    <input class="circle-radio" type="radio" name="series" value="Cayenne">
+                    <a>Cayenne <span class="gray-text"></span></a>
+                </li>
+            </nav>
+        </div>
+        <div class="models-catalog">
+            <div class="model-catalog-series" id="series-718" data-series="718">
+                <div class="models-catalog-header">
+                    <h2>718 Models</h2>
+                    <button class="back-btn arrow-area back-to-models">
+                        <img src="/static/img/icon-compare.svg">
+                        <p>Compare models</p>
+                    </button>
+                </div>
+                <div class="model-catalog-grid">
+                </div>
+            </div>
+
+            <div class="model-catalog-series" id="series-911" data-series="911">
+                <div class="models-catalog-header">
+                    <h2>911 Models</h2>
+                    <button class="back-btn arrow-area back-to-models">
+                        <img src="/static/img/icon-compare.svg">
+                        <p>Compare models</p>
+                    </button>
+                </div>
+                <div class="model-catalog-grid">
+
+                </div>
+            </div>
+
+            <div class="model-catalog-series" id="series-taycan" data-series="Taycan">
+                <div class="models-catalog-header">
+                    <h2>Taycan Models</h2>
+                    <button class="back-btn arrow-area back-to-models">
+                        <img src="/static/img/icon-compare.svg">
+                        <p>Compare models</p>
+                    </button>
+                </div>
+                <div class="model-catalog-grid">
+        
+                </div>
+            </div>
+            
+            <div class="model-catalog-series" id="series-panamera" data-series="Panamera">
+                <div class="models-catalog-header">
+                    <h2>Panamera Models</h2>
+                    <button class="back-btn arrow-area back-to-models">
+                        <img src="/static/img/icon-compare.svg">
+                        <p>Compare models</p>
+                    </button>
+                </div>
+                <div class="model-catalog-grid">
+                </div>
+            </div>
+            
+            <div class="model-catalog-series" id="series-macan" data-series="Macan">
+                <div class="models-catalog-header">
+                    <h2>Macan Models</h2>
+                    <button class="back-btn arrow-area back-to-models">
+                        <img src="/static/img/icon-compare.svg">
+                        <p>Compare models</p>
+                    </button>
+                </div>
+                <div class="model-catalog-grid">
+                </div>
+            </div>
+            
+            <div class="model-catalog-series" id="series-cayenne" data-series="Cayenne">
+                <div class="models-catalog-header">
+                    <h2>Cayenne Models</h2>
+                    <button class="back-btn arrow-area back-to-models">
+                        <img src="/static/img/icon-compare.svg">
+                        <p>Compare models</p>
+                    </button>
+                </div>
+                <div class="model-catalog-grid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/models.js') }}"></script>
+    {% endblock %}
+{% endblock %}
+
